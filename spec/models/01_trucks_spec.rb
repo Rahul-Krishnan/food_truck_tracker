@@ -1,4 +1,5 @@
-require 'spec_helper'
+require 'rails_helper'
+require 'pry'
 
 describe Truck do
   let!(:truck) { FactoryGirl.create(:truck) }
