@@ -3,7 +3,7 @@ require 'spec_helper'
 describe Truck do
   let!(:truck) { FactoryGirl.create(:truck) }
 
-  describe ".new" do 
+  describe ".new" do
     it "has a name" do
       expect(truck.name).to eq("Chicken & Rice Guys")
     end
