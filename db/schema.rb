@@ -10,10 +10,36 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170130171611) do
+ActiveRecord::Schema.define(version: 20170130200818) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "appointments", force: :cascade do |t|
+    t.integer  "truck_id",    null: false
+    t.integer  "timeslot_id", null: false
+    t.integer  "location_id", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["location_id"], name: "index_appointments_on_location_id", using: :btree
+    t.index ["timeslot_id"], name: "index_appointments_on_timeslot_id", using: :btree
+    t.index ["truck_id", "timeslot_id", "location_id"], name: "index_appointments_on_truck_id_and_timeslot_id_and_location_id", unique: true, using: :btree
+    t.index ["truck_id"], name: "index_appointments_on_truck_id", using: :btree
+  end
+
+  create_table "locations", force: :cascade do |t|
+    t.string   "name",       null: false
+    t.string   "address",    null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "timeslots", force: :cascade do |t|
+    t.string   "day",        null: false
+    t.string   "time",       null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "trucks", force: :cascade do |t|
     t.string   "name",       null: false
