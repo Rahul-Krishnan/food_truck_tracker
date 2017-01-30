@@ -9,7 +9,7 @@ describe Truck do
     end
 
     it "has a category" do
-      expect(truck.category).to eq("Middle Easterny")
+      expect(truck.category).to eq("Middle Eastern")
     end
   end
 end
