@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170201014953) do
+ActiveRecord::Schema.define(version: 20170201152159) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +25,36 @@ ActiveRecord::Schema.define(version: 20170201014953) do
     t.index ["timeslot_id"], name: "index_appointments_on_timeslot_id", using: :btree
     t.index ["truck_id", "timeslot_id", "location_id"], name: "index_appointments_on_truck_id_and_timeslot_id_and_location_id", unique: true, using: :btree
     t.index ["truck_id"], name: "index_appointments_on_truck_id", using: :btree
+  end
+
+  create_table "favorite_locations", force: :cascade do |t|
+    t.integer  "user_id",     null: false
+    t.integer  "location_id", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["location_id"], name: "index_favorite_locations_on_location_id", using: :btree
+    t.index ["user_id", "location_id"], name: "index_favorite_locations_on_user_id_and_location_id", unique: true, using: :btree
+    t.index ["user_id"], name: "index_favorite_locations_on_user_id", using: :btree
+  end
+
+  create_table "favorite_timeslots", force: :cascade do |t|
+    t.integer  "user_id",     null: false
+    t.integer  "timeslot_id", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["timeslot_id"], name: "index_favorite_timeslots_on_timeslot_id", using: :btree
+    t.index ["user_id", "timeslot_id"], name: "index_favorite_timeslots_on_user_id_and_timeslot_id", unique: true, using: :btree
+    t.index ["user_id"], name: "index_favorite_timeslots_on_user_id", using: :btree
+  end
+
+  create_table "favorite_trucks", force: :cascade do |t|
+    t.integer  "user_id",    null: false
+    t.integer  "truck_id",   null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["truck_id"], name: "index_favorite_trucks_on_truck_id", using: :btree
+    t.index ["user_id", "truck_id"], name: "index_favorite_trucks_on_user_id_and_truck_id", unique: true, using: :btree
+    t.index ["user_id"], name: "index_favorite_trucks_on_user_id", using: :btree
   end
 
   create_table "locations", force: :cascade do |t|
