@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root 'trucks#index'
 
-  resources :trucks, only: [:index, :show, :destroy]
-  resources :locations, only: [:index, :show, :destroy]
+  resources :trucks, only: [:index, :show]
+  resources :locations, only: [:index, :show]
   resources :timeslots, only: [:index, :show]
 end
