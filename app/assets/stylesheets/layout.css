@@ -40,3 +40,9 @@ a:hover {
 a:active {
     color: yellow;
 }
+
+.title {
+  color: white;
+  background-color: #FF9600;
+  opacity: 0.9;
+}
