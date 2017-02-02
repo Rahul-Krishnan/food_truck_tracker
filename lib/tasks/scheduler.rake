@@ -1,6 +1,6 @@
-desc "All of the porkachus"
+desc "Scrape data here"
 task :scrape => :environment do
   puts "Scraping data..."
-  scrape
+  ScrapeJob.scrape
   puts "Data scraped!"
 end

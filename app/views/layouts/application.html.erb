@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title><%= content_for?(:title) ? yield(:title) : "Untitled" %></title>
+    <title><%= content_for?(:title) ? yield(:title) : "SnackTracker" %></title>
 
     <%= stylesheet_link_tag    "application" %>
     <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
@@ -15,18 +15,17 @@
     <div class="top-bar">
       <div class="top-bar-left">
         <ul class="dropdown menu" data-dropdown-menu>
-          <a href="/"><li class="menu-text">SnackTracka</li></a>
+          <a href="/"><li class="menu-text">SnackTracker</li></a>
           <li>
             <a href="#">Select a...</a>
             <ul class="menu vertical">
               <li><a href="/trucks">Truck</a></li>
-              <li><a href="/categories">Category</a></li>
               <li><a href="/locations">Location</a></li>
               <li><a href="/timeslots">Timeslot</a></li>
             </ul>
           </li>
-          <li><a href="#">Advanced Search</a></li>
-          <li><a href=edit_user_registration_path(current_user)>Your faves</a></li>
+          <li><%= link_to "Advanced Search", trucks_path %></li>
+          <li><%= link_to "Your faves", edit_user_registration_path %></li>
         </ul>
       </div>
       <div class="top-bar-right">
@@ -35,7 +34,7 @@
             <li><%= link_to "Sign in", new_user_session_path %></li>
             <li><%= link_to "Sign up", new_user_registration_path %></li>
           <% else %>
-            <li><%= link_to "Your account...", edit_user_registration_path(current_user) %></li>
+            <li><%= link_to "Your account...", edit_user_registration_path %></li>
             <li><%= link_to "Sign out", destroy_user_session_path, method: :delete %></li>
           <% end %>
         </ul>
