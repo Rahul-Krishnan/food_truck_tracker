@@ -1,12 +1,12 @@
+require 'httparty'
+require 'Nokogiri'
+
 class ScrapeJob < ApplicationJob
   queue_as :default
 
   def scrape
     puts "whatup"
   end
-
-  require 'httparty'
-  require 'Nokogiri'
 
   def real_scrape
     page = Nokogiri::HTML(HTTParty.get("http://www.cityofboston.gov/foodtrucks/schedule-app-min.asp").body)
