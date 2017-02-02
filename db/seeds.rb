@@ -36,7 +36,7 @@ if Rails.env.development?
   Timeslot.create(day: "Saturday", time: "Late-night")
   Timeslot.create(day: "Sunday", time: "Late-night")
 
-  Location.create(name: , address: )
+  Location.create(name: "Boston Public Library", address: "700 Boylston St, Boston, MA 02116")
 
   Truck.create(name: "Bon Me", category: "French")
   Truck.create(name: "Chicken & Rice Guys", category: "Middle Eastern")
