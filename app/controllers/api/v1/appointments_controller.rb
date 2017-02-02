@@ -1,10 +1,13 @@
 class AppointmentsController < ApplicationController
+  respond_to :json
+
   def new
     @appointment = Appointment.new
   end
 
   def index
     @appointments = Appointment.all
+    render json: @apointments
   end
 
   def show

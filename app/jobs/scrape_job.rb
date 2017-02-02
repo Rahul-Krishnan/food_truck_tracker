@@ -10,11 +10,11 @@ class ScrapeJob < ApplicationJob
 
   def real_scrape
     page = Nokogiri::HTML(HTTParty.get("http://www.cityofboston.gov/foodtrucks/schedule-app-min.asp").body)
-    truck_data=page.css("td .com")
-    day_data=page.css("td .dow")
-    meal_data=page.css("td .tod")
-    location_data=page.css("td .loc")
-    appointment_data=[]
+    truck_data = page.css("td .com")
+    day_data = page.css("td .dow")
+    meal_data = page.css("td .tod")
+    location_data = page.css("td .loc")
+    appointment_data = []
     truck_data.each_with_index do |truck, n|
       long_location = location_data[n].text
       half_location = longLocation[/;(.+)/]

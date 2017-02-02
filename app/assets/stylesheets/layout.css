@@ -1,12 +1,24 @@
 body  {
-    background-image: url("http://www.badgerhillbrewing.com/wp-content/uploads/2016/03/truck.png");
+    background-image: url("http://ashevillewineandfood.com/sites/default/files/illustration.jpg");
     background-color: white;
     background-repeat: no-repeat;
     background-size: 100%;
+    text-align: center;
+}
+
+#app {
+  background-color: #132C24;
+  margin: 0 auto;
+  padding: 10px;
+  opacity: 0.9;
+  color: white;
+  width: 75%;
+  border-radius: 10px;
 }
 
 .top-bar, .top-bar, .menu li {
-  background-color: #DC4728
+  background-color: #FF9600;
+  font-weight: 800;
 }
 
 .menu-text {
@@ -14,11 +26,11 @@ body  {
 }
 
 a:link {
-    color: #65AEC8;
+    color: #132C24;
 }
 
 a:visited {
-    color: #65AEC8;
+    color: #132C24;
 }
 
 a:hover {
