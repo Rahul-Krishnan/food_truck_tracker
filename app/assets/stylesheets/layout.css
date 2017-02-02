@@ -1,3 +1,30 @@
+body  {
+    background-image: url("http://www.badgerhillbrewing.com/wp-content/uploads/2016/03/truck.png");
+    background-color: white;
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+
+.top-bar, .top-bar, .menu li {
+  background-color: #DC4728
+}
+
 .menu-text {
   font-size: 3em;
+}
+
+a:link {
+    color: #65AEC8;
+}
+
+a:visited {
+    color: #65AEC8;
+}
+
+a:hover {
+    color: white;
+}
+
+a:active {
+    color: yellow;
 }
