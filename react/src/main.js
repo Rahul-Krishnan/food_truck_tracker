@@ -5,7 +5,8 @@ import ReactDOM from 'react-dom';
 
 $(function() {
   ReactDOM.render(
-    <h1>react shows up here</h1>,
+    <h1>react shows up here guy</h1>
+    <h2>here is smaller text</h2>,
     document.getElementById('app')
   );
 });
