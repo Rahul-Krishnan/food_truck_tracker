@@ -1,6 +1,6 @@
 <h1 class="title">All timeslots</h1>
-<% @timeslots.each do |timeslot| %>
-  <li><%= timeslot.name %></li>
-<% end %>
 <div id="app">
 </div>
+<% @timeslots.each do |timeslot| %>
+  <%= timeslot.day %> <%= timeslot.time %></br>
+<% end %>

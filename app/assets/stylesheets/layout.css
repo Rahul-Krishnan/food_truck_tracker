@@ -4,6 +4,7 @@ body  {
     background-repeat: no-repeat;
     background-size: 100%;
     text-align: center;
+    color: white;
 }
 
 #app {
@@ -16,9 +17,13 @@ body  {
   border-radius: 10px;
 }
 
-.top-bar, .menu li {
+.top-bar, .top-bar-left, .top-bar-right, .menu li {
   background-color: #FF9600;
   font-weight: 800;
+}
+
+.menu {
+  background-color: #FF9600;
 }
 
 .menu-text {
