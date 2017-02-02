@@ -17,7 +17,7 @@ class ScrapeJob < ApplicationJob
     appointment_data = []
     truck_data.each_with_index do |truck, n|
       long_location = location_data[n].text
-      half_location = longLocation[/;(.+)/]
+      half_location = long_location[/;(.+)/]
       real_location = half_location.last(half_location.length - 1)
       appointment_data << { location: real_location, timeslot: { day: day_data[n].text, time: meal_data[n].text }, truck: truck.text }
     end
