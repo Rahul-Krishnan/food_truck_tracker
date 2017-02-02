@@ -7,7 +7,7 @@ class AppointmentsController < ApplicationController
 
   def index
     @appointments = Appointment.all
-    render json: @apointments
+    render json: @appointments
   end
 
   def show
