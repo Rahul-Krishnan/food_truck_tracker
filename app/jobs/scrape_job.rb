@@ -1,5 +1,7 @@
 class ScrapeJob < ApplicationJob
   queue_as :default
+  require 'nokogiri'
+  require 'HTTParty'
 
   def self.scrape
     puts "whatup"
