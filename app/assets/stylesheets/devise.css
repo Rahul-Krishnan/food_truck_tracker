@@ -1,0 +1,32 @@
+.page-body {
+  background-color: #132C24;
+  margin: 0 auto;
+  padding: 3em;
+  opacity: 0.9;
+  border-radius: 40px;
+  color: white;
+  margin: 2em;
+}
+
+label[for*="user"] {
+  color: white;
+}
+
+label[for="user_password"] {
+  color: white;
+}
+
+label[for="user_remember_me"] {
+  color: white;
+}
+
+input[type="submit"] {
+  background-color: #FF9600;
+  border-radius: 10px;
+}
+
+a:link, a:visited {
+  background-color: #FF9600;
+  padding: 2px;
+  border-radius: 7px;
+}

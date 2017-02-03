@@ -1,11 +1,11 @@
 class ScrapeJob < ApplicationJob
   queue_as :default
 
-  def scrape
+  def self.scrape
     puts "whatup"
   end
 
-  def real_scrape
+  def self.real_scrape
     page = Nokogiri::HTML(HTTParty.get("http://www.cityofboston.gov/foodtrucks/schedule-app-min.asp").body)
     truck_data = page.css("td .com")
     day_data = page.css("td .dow")
