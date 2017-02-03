@@ -1,3 +1,6 @@
 <h1 class="title">All locations</h1>
 <div id="app">
 </div>
+<% @locations.each do |location| %>
+  <%= location.address %></br>
+<% end %>
