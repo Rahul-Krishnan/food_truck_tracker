@@ -2,6 +2,7 @@ body  {
     background-image: url("http://ashevillewineandfood.com/sites/default/files/illustration.jpg");
     background-color: white;
     background-repeat: no-repeat;
+    font-family: 'Bitter';
     background-size: 100%;
     text-align: center;
     color: white;
@@ -9,6 +10,7 @@ body  {
 
 #app {
   background-color: #132C24;
+  font-family: 'Bitter';
   margin: 0 auto;
   padding: 10px;
   opacity: 0.9;
@@ -20,34 +22,34 @@ body  {
 .top-bar, .top-bar-left, .top-bar-right, .menu li {
   background-color: #FF9600;
   font-weight: 800;
-}
-
-.menu {
-  background-color: #FF9600;
+  color: #2B423A;
 }
 
 .menu-text {
-  font-size: 3em;
+  background-color: #FF9600;
+  font-family: 'Pacifico', cursive;
+  font-size: 4em;
 }
 
 a:link {
-    color: #132C24;
+  color: #2B423A;
 }
 
 a:visited {
-    color: #132C24;
+  color: #2B423A;
 }
 
 a:hover {
-    color: white;
+  color: white;
 }
 
 a:active {
-    color: yellow;
+  color: yellow;
 }
 
 .title {
   color: white;
+  font-family: 'Bitter';
   background-color: #FF9600;
   opacity: 0.9;
 }

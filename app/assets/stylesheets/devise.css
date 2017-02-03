@@ -1,5 +1,6 @@
 .page-body {
   background-color: #132C24;
+  font-family: 'Bitter';
   margin: 0 auto;
   padding: 3em;
   opacity: 0.9;
@@ -8,25 +9,23 @@
   margin: 2em;
 }
 
+.sub-heading {
+  font-family: 'Bitter';
+}
+
 label[for*="user"] {
   color: white;
-}
-
-label[for="user_password"] {
-  color: white;
-}
-
-label[for="user_remember_me"] {
-  color: white;
+  font-family: 'Bitter';
 }
 
 input[type="submit"] {
   background-color: #FF9600;
+  font-family: 'Bitter';
   border-radius: 10px;
 }
 
 a:link, a:visited {
   background-color: #FF9600;
-  padding: 2px;
+  font-family: 'Bitter';
   border-radius: 7px;
 }

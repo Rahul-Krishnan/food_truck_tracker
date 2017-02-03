@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
+    <link href="https://fonts.googleapis.com/css?family=Bitter|Bree+Serif|Pacifico|Rokkitt" rel="stylesheet">
     <title><%= content_for?(:title) ? yield(:title) : "SnackTracker" %></title>
 
     <%= stylesheet_link_tag    "application" %>
@@ -14,18 +14,20 @@
   <body>
     <div class="top-bar">
       <div class="top-bar-left">
-        <ul class="dropdown menu" data-dropdown-menu>
-          <a href="/"><li class="menu-text">SnackTracker</li></a>
-          <li>
-            <a href="#">Select a...</a>
-            <ul class="menu vertical">
-              <li><a href="/trucks">Truck</a></li>
-              <li><a href="/locations">Location</a></li>
-              <li><a href="/timeslots">Timeslot</a></li>
-            </ul>
-          </li>
-          <li><%= link_to "Advanced Search", trucks_path %></li>
-          <li><%= link_to "Your faves", edit_user_registration_path %></li>
+        <ul>
+          <a href="/"><div class="menu-text">SnackTracker</div></a>
+          <ul class="menu horizontal">
+            <li>
+              <a href="#">Select a...</a>
+              <ul class="menu horizontal">
+                <li><a href="/trucks">Truck</a></li>
+                <li><a href="/locations">Location</a></li>
+                <li><%= link_to "Timeslot", timeslots_path %></li>
+              </ul>
+            </li>
+            <li><%= link_to "Your faves", edit_user_registration_path, :class => "left-bar" %></li>
+            <li><%= link_to "Contact us", edit_user_registration_path, :class => "left-bar" %></li>
+          </ul>
         </ul>
       </div>
       <div class="top-bar-right">
