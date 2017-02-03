@@ -28,7 +28,11 @@ body  {
 .menu-text {
   background-color: #FF9600;
   font-family: 'Pacifico', cursive;
-  font-size: 4em;
+  font-size: 5rem;
+}
+
+.menu {
+  font-size: 1.25rem;
 }
 
 a:link {

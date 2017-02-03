@@ -18,10 +18,10 @@
           <a href="/"><div class="menu-text">SnackTracker</div></a>
           <ul class="menu horizontal">
             <li>
-              <a href="#">Select a...</a>
+              Select a...
               <ul class="menu horizontal">
-                <li><a href="/trucks">Truck</a></li>
-                <li><a href="/locations">Location</a></li>
+                <li><%= link_to "Truck", trucks_path %></li>
+                <li><%= link_to "Location", locations_path %></li>
                 <li><%= link_to "Timeslot", timeslots_path %></li>
               </ul>
             </li>
