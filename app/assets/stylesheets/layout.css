@@ -9,7 +9,7 @@ body  {
     color: white;
 }
 
-#app {
+#truck-list, #timeslot-list, #location-list {
   background-color: #132C24;
   font-family: 'Bitter';
   margin: 0 auto;
