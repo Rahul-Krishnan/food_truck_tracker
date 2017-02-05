@@ -4,8 +4,9 @@ Rails.application.routes.draw do
   root 'trucks#index'
 
   resources :trucks, only: [:index, :show]
-  resources :locations, only: [:index, :show]
-  resources :timeslots, only: [:index, :show]
+  resources :locations, only: [:index]
+  resources :appointments, only: [:index]
+  resources :favorite_trucks, only: [:index]
 
   namespace :api do
     namespace :v1 do
@@ -13,9 +14,6 @@ Rails.application.routes.draw do
         resources :appointments, only: [:index]
       end
       resources :locations, only: [:index] do
-        resources :appointments, only: [:index]
-      end
-      resources :timeslots, only: [:index] do
         resources :appointments, only: [:index]
       end
     end

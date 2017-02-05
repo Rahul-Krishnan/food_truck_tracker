@@ -9,24 +9,23 @@ import TimeslotApp from './components/TimeslotApp';
 $(function() {
   if (document.getElementById('truck-list')) {
     ReactDOM.render(
-      debugger;
-      <TruckApp />
+
+      <TruckApp />,
       document.getElementById('truck-list')
     );
   }
   if (document.getElementById('location-list')) {
     ReactDOM.render(
       <h1 className="menu">react shows up here guy</h1>,
-      <LocationApp />
+      <LocationApp />,
       document.getElementById('location-list')
     );
   }
   if (document.getElementById('timeslot-list')) {
     ReactDOM.render(
       <h1 className="menu">react shows up here guy</h1>,
-      <TimeslotApp />
+      <TimeslotApp />,
       document.getElementById('timeslot-list')
     );
   }
-  );
 });

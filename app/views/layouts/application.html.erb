@@ -17,11 +17,8 @@
         <ul>
           <a href="/"><div class="menu-text">SnackTracker</div></a>
           <ul class="menu horizontal">
-            <li><%= link_to "Trucks", trucks_path %></li>
-            <li><%= link_to "Locations", locations_path %></li>
-            <li><%= link_to "Timeslots", timeslots_path %></li>
-            <li><%= link_to "Your faves", edit_user_registration_path, :class => "left-bar" %></li>
-            <li><%= link_to "Contact us", edit_user_registration_path, :class => "left-bar" %></li>
+            <li><%= link_to "All trucks", trucks_path %></li>
+            <li><%= link_to "Your trucks", favorite_trucks_path %></li>
           </ul>
         </ul>
       </div>

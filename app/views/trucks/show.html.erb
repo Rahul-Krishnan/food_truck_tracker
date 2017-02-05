@@ -1,0 +1,18 @@
+<div class="show-page">
+  <h1><%= @truck.name %></h1>
+  <ul class="truck-info">
+    <div class="content">
+      <% if !@truck.appointments.empty? %>
+        <% @truck.appointments.each do |appointment| %>
+          <%= appointment.truck.name %>
+          <%= appointment.location.name %>
+          <%= appointment.timeslot.day %>
+          <%= appointment.timeslot.time %>
+        <% end %>
+      <li>
+        <span class="prompt">Schedule:</span> <%= @host_names.to_sentence %>
+      </li>
+      <% end %>
+    </div>
+  </ul>
+</div>

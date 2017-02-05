@@ -5,4 +5,5 @@ class Api::V1::AppointmentsController < ApplicationController
     @appointments = Appointment.all
     render json: @appointments
   end
+
 end
