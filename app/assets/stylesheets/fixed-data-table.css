@@ -1,5 +1,5 @@
 /**
- * FixedDataTable v0.6.3 
+ * FixedDataTable v0.6.3
  *
  * Copyright (c) 2015, Facebook, Inc.
  * All rights reserved.
@@ -168,6 +168,7 @@ body[dir="rtl"] .fixedDataTableColumnResizerLineLayout_main {
 .fixedDataTableLayout_hasBottomBorder {
   border-bottom-style: solid;
   border-bottom-width: 1px;
+  height: 30px;
 }
 
 .fixedDataTableLayout_footer .public_fixedDataTableCell_main {
@@ -371,13 +372,13 @@ body[dir="rtl"] .fixedDataTableColumnResizerLineLayout_main {
 
 .public_fixedDataTable_header,
 .public_fixedDataTable_header .public_fixedDataTableCell_main {
-  background-color: #f6f7f8;
-  background-image: -webkit-linear-gradient(#fff, #efefef);
-  background-image: linear-gradient(#fff, #efefef);
+  background-color: #132C24;
+  background-image: -webkit-linear-gradient(#487244, #132C24);
+  background-image: linear-gradient(#487244, #132C24);
 }
 
 .public_fixedDataTable_footer .public_fixedDataTableCell_main {
-  background-color: #f6f7f8;
+  background-color:#132C24;
   border-color: #d3d3d3;
 }
 
@@ -407,7 +408,7 @@ body[dir="rtl"] .fixedDataTableColumnResizerLineLayout_main {
  * Table cell.
  */
 .public_fixedDataTableCell_main {
-  background-color: #fff;
+  background-color: #132C24;
   border-color: #d3d3d3;
 }
 
@@ -455,12 +456,13 @@ body[dir="rtl"] .fixedDataTableColumnResizerLineLayout_main {
  * Table row.
  */
 .public_fixedDataTableRow_main {
-  background-color: #fff;
+  background-color: #132C24;
+  opacity: 0.9;
 }
 
 .public_fixedDataTableRow_highlighted,
 .public_fixedDataTableRow_highlighted .public_fixedDataTableCell_main {
-  background-color: #f6f7f8;
+  background-color: #487244;
 }
 
 .public_fixedDataTableRow_fixedColumnsDivider {
@@ -506,4 +508,20 @@ body[dir="rtl"] .fixedDataTableColumnResizerLineLayout_main {
 .public_Scrollbar_mainActive .public_Scrollbar_face:after,
 .public_Scrollbar_faceActive:after {
   background-color: #7d7d7d;
+}
+
+a:link {
+  color: white;
+}
+
+a:visited {
+  color: white;
+}
+
+a:hover {
+  color: white;
+}
+
+a:active {
+  color: yellow;
 }
