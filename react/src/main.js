@@ -7,25 +7,10 @@ import LocationApp from './components/LocationApp';
 import TimeslotApp from './components/TimeslotApp';
 
 $(function() {
-  if (document.getElementById('truck-list')) {
-    ReactDOM.render(
-
+  ReactDOM.render(
+      <h1 className="menu">react shows up here guy</h1>,
       <TruckApp />,
-      document.getElementById('truck-list')
+      document.getElementById('truck-app')
     );
   }
-  if (document.getElementById('location-list')) {
-    ReactDOM.render(
-      <h1 className="menu">react shows up here guy</h1>,
-      <LocationApp />,
-      document.getElementById('location-list')
-    );
-  }
-  if (document.getElementById('timeslot-list')) {
-    ReactDOM.render(
-      <h1 className="menu">react shows up here guy</h1>,
-      <TimeslotApp />,
-      document.getElementById('timeslot-list')
-    );
-  }
-});
+);

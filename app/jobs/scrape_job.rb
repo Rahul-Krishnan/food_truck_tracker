@@ -20,5 +20,6 @@ class ScrapeJob < ApplicationJob
       real_location = half_location.last(half_location.length - 1)
       appointment_data << { location: real_location, timeslot: { day: day_data[n].text, time: meal_data[n].text }, truck: truck.text }
     end
+    binding.pry
   end
 end
