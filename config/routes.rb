@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   resources :trucks, only: [:index, :show]
   resources :locations, only: [:index]
   resources :appointments, only: [:index]
-  resources :favorite_trucks, only: [:index]
+  resources :favorite_trucks
 
   namespace :api do
     namespace :v1 do
@@ -16,6 +16,7 @@ Rails.application.routes.draw do
       resources :locations, only: [:index] do
         resources :appointments, only: [:index]
       end
+      resource :appointments, only: [:index, :show]
     end
   end
 end

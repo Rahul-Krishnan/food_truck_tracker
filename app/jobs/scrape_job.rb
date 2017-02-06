@@ -20,6 +20,11 @@ class ScrapeJob < ApplicationJob
       real_location = half_location.last(half_location.length - 1)
       appointment_data << { location: real_location, timeslot: { day: day_data[n].text, time: meal_data[n].text }, truck: truck.text }
     end
-    binding.pry
+
+    Appointment.destroy_all
+
+    appointment_data.each do |appointment|
+      Appointment.create(truck: Truck.find_or_create_by(name: appointment[truck], location: Location.find_or_create_by(address: appointment[location]), timeslot: Timeslot.find_or_create_by(day: appointment[timeslot][day], time: appointment[timeslot][time]))
+    end
   end
 end

@@ -312,6 +312,11 @@ class TruckApp extends Component {
     .catch(error => console.error(`Error in fetch: ${error.message}`));
   }
 
+  componentWillMount() {
+    this.getAppointments();
+    debugger;
+  }
+
   _renderHeader(label, cellDataKey) {
     return <div>
           <a onClick={this._sortRowsBy.bind(this, cellDataKey)}>{label}</a>
