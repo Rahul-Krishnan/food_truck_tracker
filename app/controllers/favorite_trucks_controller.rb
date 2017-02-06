@@ -16,7 +16,8 @@ class FavoriteTrucksController < ApplicationController
   end
 
   def destroy
-    @favorite_truck = FavoriteTruck.find(params[:id])
-    @favorite_truck.destroy
+    @truck = FavoriteTruck.where(truck: params[:id], user: current_user)
+    FavoriteTruck.destroy(@truck[0].id)
+    render :index
   end
 end
