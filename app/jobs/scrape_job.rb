@@ -24,7 +24,7 @@ class ScrapeJob < ApplicationJob
     Appointment.destroy_all
 
     appointment_data.each do |appointment|
-      Appointment.create(truck: Truck.find_or_create_by(name: appointment[truck], location: Location.find_or_create_by(address: appointment[location]), timeslot: Timeslot.find_or_create_by(day: appointment[timeslot][day], time: appointment[timeslot][time]))
+      Appointment.create(truck: Truck.find_or_create_by(name: appointment[truck], location: Location.find_or_create_by(address: appointment[location]), timeslot: Timeslot.find_or_create_by(day: appointment[timeslot][day], time: appointment[timeslot][time])))
     end
   end
 end
