@@ -374,7 +374,7 @@ class TruckApp extends Component {
       sortDirArrow = this.state.sortDir === 'DESC' ? ' ↓' : ' ↑';
     }
     return <Table
-        height={400}
+        height={360}
         width={860}
         rowsCount={this.state.filteredDataList.length}
         rowHeight={30}

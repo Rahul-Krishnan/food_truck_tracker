@@ -1,8 +1,4 @@
-<h1 class="title">Find a truck</h1>
+<h1 class="title">Sort and find a truck:</h1>
 
 <div id="truck-app">
 </div>
-
-<% @appointments.each do |appointment| %>
-  <%= appointment.truck.name %> <%= appointment.location.address %> <%= appointment.timeslot.day %> <%= appointment.timeslot.time %></br>
-<% end %>

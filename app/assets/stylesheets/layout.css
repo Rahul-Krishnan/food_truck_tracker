@@ -16,7 +16,7 @@ body  {
   padding: 25px 50px 50px 50px;
   opacity: 0.9;
   color: white;
-  width: 75%;
+  width: 960px;
   border-radius: 10px;
 }
 
@@ -63,11 +63,20 @@ a:active {
   color: yellow;
 }
 
+a {
+  color: white;
+}
+
+#truck-app a:hover {
+  text-decoration: underline;
+}
+
 .title {
   color: white;
   font-family: 'Bitter';
   background-color: #FF9600;
   opacity: 0.9;
+  font-size: 2rem;
 }
 
 .sub-menu {

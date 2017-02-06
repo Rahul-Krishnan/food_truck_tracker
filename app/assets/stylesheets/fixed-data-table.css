@@ -417,6 +417,7 @@ body[dir="rtl"] .fixedDataTableColumnResizerLineLayout_main {
 }
 
 .public_fixedDataTableCell_cellContent {
+  color: white;
   padding: 8px;
 }
 
@@ -457,7 +458,6 @@ body[dir="rtl"] .fixedDataTableColumnResizerLineLayout_main {
  */
 .public_fixedDataTableRow_main {
   background-color: #132C24;
-  opacity: 0.9;
 }
 
 .public_fixedDataTableRow_highlighted,
@@ -508,6 +508,10 @@ body[dir="rtl"] .fixedDataTableColumnResizerLineLayout_main {
 .public_Scrollbar_mainActive .public_Scrollbar_face:after,
 .public_Scrollbar_faceActive:after {
   background-color: #7d7d7d;
+}
+
+a {
+  color: white;
 }
 
 a:link {
