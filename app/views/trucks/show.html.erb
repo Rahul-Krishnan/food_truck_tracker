@@ -11,9 +11,22 @@
           <% end %>
         </ul>
       <% end %>
-      <li>
-        <span class="prompt"><%= link_to "Make favorite",  FavoriteTruck.create(truck: @truck, user: current_user) %></span>
-      </li>
+
+      <% truck_count = 0 %>
+      <% current_user.favorite_trucks.each do |fav_truck| %>
+        <% if fav_truck.truck.id == @truck.id %>
+          <% truck_count +=1 %>
+        <% end %>
+      <% end %>
+      <% if truck_count == 0 %>
+        <li>
+          <span class="prompt"><%= link_to "Make favorite",  FavoriteTruck.create(truck: @truck, user: current_user) %></span>
+        </li>
+      <% else %>
+        <li>
+          <span class="prompt"><%= link_to "Remove favorite",  FavoriteTruck.create(truck: @truck, user: current_user) %></span>
+        </li>
+      <% end %>
     </div>
   </ul>
 </div>

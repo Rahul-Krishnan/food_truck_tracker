@@ -314,7 +314,6 @@ class TruckApp extends Component {
 
   componentWillMount() {
     this.getAppointments();
-    debugger;
   }
 
   _renderHeader(label, cellDataKey) {
