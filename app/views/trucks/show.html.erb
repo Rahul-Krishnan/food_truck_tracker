@@ -1,17 +1,31 @@
-<div class="show-page">
+<div class="menu">
   <h1><%= @truck.name %></h1>
   <ul class="truck-info">
     <div class="content">
       <% if !@truck.appointments.empty? %>
+        <ul>
         <% @truck.appointments.each do |appointment| %>
-          <%= appointment.truck.name %>
-          <%= appointment.location.name %>
-          <%= appointment.timeslot.day %>
-          <%= appointment.timeslot.time %>
+            <%= appointment.timeslot.day %>
+            <%= appointment.timeslot.time %>: </br>
+            <%= appointment.location.address %> </br></br>
+          <% end %>
+        </ul>
+      <% end %>
+
+      <% truck_count = 0 %>
+      <% current_user.favorite_trucks.each do |fav_truck| %>
+        <% if fav_truck.truck.id == @truck.id %>
+          <% truck_count +=1 %>
         <% end %>
-      <li>
-        <span class="prompt">Schedule:</span> <%= @host_names.to_sentence %>
-      </li>
+      <% end %>
+      <% if truck_count == 0 %>
+        <li>
+          <span class="prompt"><%= link_to "Make favorite",  FavoriteTruck.create(truck: @truck, user: current_user) %></span>
+        </li>
+      <% else %>
+        <li>
+          <span class="prompt"><%= link_to "Remove favorite",  FavoriteTruck.create(truck: @truck, user: current_user) %></span>
+        </li>
       <% end %>
     </div>
   </ul>

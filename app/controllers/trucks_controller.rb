@@ -8,6 +8,6 @@ class TrucksController < ApplicationController
   end
 
   def show
-    @truck = Truck.find(params[:truck_id])
+    @truck = Truck.find(params[:id])
   end
 end

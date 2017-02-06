@@ -1,5 +1,6 @@
-<h1 class="title">Find a truck</h1>
-
-<% @trucks.each do |truck| %>
-  <%= truck.name %></br>
-<% end %>
+<h1 class="title">Select favorite trucks</h1>
+<div class="menu">
+  <% @trucks.each do |truck| %>
+    <%= link_to truck.name, truck_path(truck) %></br>
+  <% end %>
+</div>

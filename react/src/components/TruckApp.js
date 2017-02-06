@@ -307,9 +307,13 @@ class TruckApp extends Component {
     .then(response => response.json())
     .then(body => {
       let appointments = body;
-      this.setState({ filteredDataList: appointments });
+      this.setState({ rows: appointments });
     })
     .catch(error => console.error(`Error in fetch: ${error.message}`));
+  }
+
+  componentWillMount() {
+    this.getAppointments();
   }
 
   _renderHeader(label, cellDataKey) {
@@ -344,8 +348,8 @@ class TruckApp extends Component {
   _sortRowsBy(cellDataKey) {
     let sortDir = this.state.sortDir;
     let sortBy = cellDataKey;
-    if (sortBy === this.state.sortBy) {
-      sortDir = this.state.sortDir === 'ASC' ? 'DESC' : 'ASC';
+    if (sortBy == this.state.sortBy) {
+      sortDir = this.state.sortDir == 'ASC' ? 'DESC' : 'ASC';
     } else {
       sortDir = 'DESC';
     }
@@ -359,7 +363,7 @@ class TruckApp extends Component {
         sortVal = -1;
       }
 
-      if (sortDir === 'DESC') {
+      if (sortDir == 'DESC') {
         sortVal = sortVal * -1;
       }
       return sortVal;
@@ -371,7 +375,7 @@ class TruckApp extends Component {
   render() {
     let sortDirArrow = '';
     if (this.state.sortDir !== null){
-      sortDirArrow = this.state.sortDir === 'DESC' ? ' ↓' : ' ↑';
+      sortDirArrow = this.state.sortDir == 'DESC' ? ' ↓' : ' ↑';
     }
     return <Table
         height={360}
@@ -381,16 +385,16 @@ class TruckApp extends Component {
         headerHeight={60}
         rowGetter={function(rowIndex) {return this.state.filteredDataList[rowIndex]; }.bind(this)}>
         <Column dataKey="truck" width={240}
-          label={'Truck' + (this.state.sortBy === 'truck' ? sortDirArrow : '')}
+          label={'Truck' + (this.state.sortBy == 'truck' ? sortDirArrow : '')}
           headerRenderer={this._renderHeader.bind(this)} />
         <Column  dataKey="location" width={380}
-          label={'Location' + (this.state.sortBy === 'location' ? sortDirArrow : '')}
+          label={'Location' + (this.state.sortBy == 'location' ? sortDirArrow : '')}
           headerRenderer={this._renderHeader.bind(this)} />
         <Column  dataKey="day" width={120}
-          label={'Day' + (this.state.sortBy === 'day' ? sortDirArrow : '')}
+          label={'Day' + (this.state.sortBy == 'day' ? sortDirArrow : '')}
           headerRenderer={this._renderHeader.bind(this)} />
         <Column  dataKey="time" width={120}
-          label={'Time' + (this.state.sortBy === 'time' ? sortDirArrow : '')}
+          label={'Time' + (this.state.sortBy == 'time' ? sortDirArrow : '')}
           headerRenderer={this._renderHeader.bind(this)} />
       </Table>;
   }

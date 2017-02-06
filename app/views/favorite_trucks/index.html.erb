@@ -1,5 +1,23 @@
-<h1 class="title">Your Trucks</h1>
+<h1 class="title">Your Trucks Today</h1>
 
-<% @trucks.each do |truck| %>
-  <%= truck.name %></br>
-<% end %>
+<div class="menu">
+    <% if !(current_user.favorite_trucks.nil?) %>
+      <% current_user.favorite_trucks.each do |fav_truck| %>
+        <% if fav_truck.user == current_user %>
+        <%= link_to fav_truck.truck.name, truck_path(fav_truck.truck), class: "sub-menu" %></br>
+          <% meal_count = 0 %>
+          <% fav_truck.truck.appointments.each do |appointment| %>
+            <% if appointment.timeslot.day == Date.today.strftime("%A") %>
+              <%= appointment.timeslot.day %>
+              <%= appointment.timeslot.time %>: </br>
+              <%= appointment.location.address %> </br></br>
+              <% meal_count +=1 %>
+            <% end %>
+          <% end %>
+          <% if meal_count == 0 %>
+            <div>No food today!</div> </br>
+          <% end %>
+        <% end %>
+      <% end %>
+    <% end %>
+</div>

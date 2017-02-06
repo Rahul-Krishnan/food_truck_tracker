@@ -1,0 +1,18 @@
+<div class="menu">
+  <h1><%= @truck.truck.name %></h1>
+  <ul class="truck-info">
+    <div class="content">
+      <% if !@truck.truck.appointments.empty? %>
+        <% @truck.truck.appointments.each do |appointment| %>
+            <%= appointment.timeslot.day %>
+            <%= appointment.timeslot.time %>: </br>
+            <%= appointment.location.address %> </br></br>
+          <% end %>
+          </br>
+      <% end %>
+      <li>
+        <span class="prompt"><%= link_to "Remove favorite", trucks_path %></span>
+      </li>
+    </div>
+  </ul>
+</div>
