@@ -24,7 +24,7 @@
         </li>
       <% else %>
         <li>
-          <span class="prompt"><%= link_to "Remove favorite",  FavoriteTruck.create(truck: @truck, user: current_user) %></span>
+          <span class="prompt"><%= link_to "Remove favorites", favorite_truck_path(@truck), data: {:confirm => 'Are you sure?'}, :method => :delete %></span>
         </li>
       <% end %>
     </div>
