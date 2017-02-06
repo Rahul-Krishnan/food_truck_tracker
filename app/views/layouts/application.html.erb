@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="https://fonts.googleapis.com/css?family=Bitter|Bree+Serif|Pacifico|Rokkitt" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Sansita|Bitter|Bree+Serif|Pacifico|Rokkitt" rel="stylesheet">
     <title><%= content_for?(:title) ? yield(:title) : "SnackTracker" %></title>
 
     <%= stylesheet_link_tag    "application" %>
@@ -16,21 +16,18 @@
       <div class="top-bar-left">
         <ul>
           <a href="/"><div class="menu-text">SnackTracker</div></a>
-          <ul class="menu horizontal">
-            <li><%= link_to "Trucks", trucks_path %></li>
-            <li><%= link_to "Locations", locations_path %></li>
-            <li><%= link_to "Timeslots", timeslots_path %></li>
-            <li><%= link_to "Your faves", edit_user_registration_path, :class => "left-bar" %></li>
-            <li><%= link_to "Contact us", edit_user_registration_path, :class => "left-bar" %></li>
-          </ul>
+          <div class="sub-menu">Boston's Food Truck Resource</div>
         </ul>
       </div>
       <div class="top-bar-right">
         <ul class="menu">
           <% if !user_signed_in? %>
+            <li><%= link_to "All trucks", appointments_path %></li>
             <li><%= link_to "Sign in", new_user_session_path %></li>
             <li><%= link_to "Sign up", new_user_registration_path %></li>
           <% else %>
+            <li><%= link_to "All trucks", appointments_path %></li>
+            <li><%= link_to "Your trucks", trucks_path %></li>
             <li><%= link_to "Your account...", edit_user_registration_path %></li>
             <li><%= link_to "Sign out", destroy_user_session_path, method: :delete %></li>
           <% end %>

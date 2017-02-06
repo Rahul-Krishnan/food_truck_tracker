@@ -9,14 +9,14 @@ body  {
     color: white;
 }
 
-#app {
+#truck-app {
   background-color: #132C24;
   font-family: 'Bitter';
   margin: 0 auto;
-  padding: 10px;
+  padding: 25px 50px 50px 50px;
   opacity: 0.9;
   color: white;
-  width: 75%;
+  width: 960px;
   border-radius: 10px;
 }
 
@@ -24,15 +24,25 @@ body  {
   background-color: #FF9600;
   font-weight: 800;
   color: #2B423A;
+  padding: 0;
 }
 
 .menu-text {
   background-color: #FF9600;
   font-family: 'Pacifico', cursive;
   font-size: 4rem;
+  margin-bottom: 0;
+  padding-bottom: 0;
 }
 
 .menu {
+  background-color: #132C24;
+  margin: 0 auto;
+  padding: 10px;
+  opacity: 0.9;
+  color: white;
+  width: 75%;
+  border-radius: 10px;
   font-family: 'Bitter';
   font-size: 1.25rem;
 }
@@ -53,9 +63,24 @@ a:active {
   color: yellow;
 }
 
+a {
+  color: white;
+}
+
+#truck-app a:hover {
+  text-decoration: underline;
+}
+
 .title {
   color: white;
   font-family: 'Bitter';
   background-color: #FF9600;
   opacity: 0.9;
+  font-size: 2rem;
+}
+
+.sub-menu {
+  font-family: 'Sansita';
+  font-style: italic;
+  font-size: 1.75rem;
 }
