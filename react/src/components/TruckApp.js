@@ -294,7 +294,9 @@ class TruckApp extends Component {
   }
 
   getAppointments() {
-    fetch('/api/v1/appointments.json')
+    fetch('/api/v1/appointments', {
+     credentials: 'same-origin'
+   })
     .then(response => {
       if (response.ok) {
         return response;
@@ -307,12 +309,13 @@ class TruckApp extends Component {
     .then(response => response.json())
     .then(body => {
       let appointments = body;
-      this.setState({ rows: appointments });
+          debugger;
+      this.setState({ filteredDataList: appointments });
     })
     .catch(error => console.error(`Error in fetch: ${error.message}`));
   }
 
-  componentWillMount() {
+  componentDidMount() {
     this.getAppointments();
   }
 

@@ -11,13 +11,7 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1 do
-      resources :trucks, only: [:index] do
-        resources :appointments, only: [:index]
-      end
-      resources :locations, only: [:index] do
-        resources :appointments, only: [:index]
-      end
-      resource :appointments, only: [:index, :show]
+      resource :appointments
     end
   end
 end
