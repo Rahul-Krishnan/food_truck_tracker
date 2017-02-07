@@ -40,7 +40,7 @@
 .back-box {
   background-color: #132C24;
   margin: 0 auto;
-  margin-top: 20px;
+  margin-top: 10px;
   padding: 10px;
   opacity: 0.9;
   color: white;
@@ -51,6 +51,15 @@
   font-size: 1.25rem;
 }
 
-.row {
-  background-color: white;
+.fat-links {
+  background-color: #132C24;
+  margin: 0 auto;
+  padding: 10px;
+  opacity: 1;
+  color: white;
+  width: 75%;
+  border-radius: 20px;
+  font-family: 'Bitter';
+  font-size: 1.2rem;
+  font-weight: 600;
 }

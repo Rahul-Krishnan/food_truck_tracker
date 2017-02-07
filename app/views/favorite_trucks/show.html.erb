@@ -11,7 +11,7 @@
           <% end %>
         </ul>
       <% end %>
-        <span class="prompt"><%= link_to "Remove from favorites", favorite_truck_path(@truck), data: {:confirm => 'Are you sure?'}, :method => :delete %></span>
+        <span class="prompt"><%= link_to "Remove from favorites", favorite_truck_path(@truck), data: {:confirm => 'Are you sure?'}, :method => :delete, class: "fat-links" %></span>
     </div>
   </ul>
 </div>

@@ -19,9 +19,9 @@
         <% end %>
       <% end %>
       <% if truck_count == 0 %>
-          <span class="prompt"><%= link_to "Make favorite", favorite_trucks_path(truck: @truck), :method => :post %></span>
+          <span class="prompt"><%= link_to "Make favorite", favorite_trucks_path(truck: @truck), :method => :post, class: "fat-links" %></span>
       <% else %>
-          <span class="prompt"><%= link_to "Remove from favorites", favorite_truck_path(truck: @truck, user: current_user), data: {:confirm => 'Are you sure?'}, :method => :delete %></span>
+          <span class="prompt"><%= link_to "Remove from favorites", favorite_truck_path(truck: @truck, user: current_user), data: {:confirm => 'Are you sure?'}, :method => :delete, class: "fat-links" %></span>
       <% end %>
     </div>
   </ul>
