@@ -1,6 +1,10 @@
 <h1 class="title">Select favorite trucks</h1>
-<div class="menu">
+
+<div class="back-box">
   <% @trucks.each do |truck| %>
-    <%= link_to truck.name, truck_path(truck) %></br>
+    <div class="small-4 columns">
+      <%= link_to truck.name, truck_path(truck), class: "truck-list-item" %></br>
+    </div>
   <% end %>
+  .
 </div>

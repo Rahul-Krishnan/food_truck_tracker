@@ -1,5 +1,5 @@
-<div class="menu">
-  <h1><%= @truck.name %></h1>
+<div class="back-box">
+  <h1 class="truck-show-title"><%= @truck.name %></h1>
   <ul class="truck-info">
     <div class="content">
       <% if !@truck.appointments.empty? %>
@@ -19,13 +19,9 @@
         <% end %>
       <% end %>
       <% if truck_count == 0 %>
-        <li>
-          <span class="prompt"><%= link_to "Make favorite",  FavoriteTruck.create(truck: @truck, user: current_user) %></span>
-        </li>
+          <span class="prompt"><%= link_to "Make favorite", favorite_trucks_path(truck: @truck), :method => :post %></span>
       <% else %>
-        <li>
-          <span class="prompt"><%= link_to "Remove from favorites", favorite_truck_path(@truck), data: {:confirm => 'Are you sure?'}, :method => :delete %></span>
-        </li>
+          <span class="prompt"><%= link_to "Remove from favorites", favorite_truck_path(truck: @truck, user: current_user), data: {:confirm => 'Are you sure?'}, :method => :delete %></span>
       <% end %>
     </div>
   </ul>

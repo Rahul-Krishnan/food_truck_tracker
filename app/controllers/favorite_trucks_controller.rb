@@ -12,7 +12,8 @@ class FavoriteTrucksController < ApplicationController
   end
 
   def create
-    redirect favorite_trucks_path
+    FavoriteTruck.create(truck: Truck.find(params[:truck]), user: current_user)
+    redirect_to favorite_trucks_path
   end
 
   def destroy

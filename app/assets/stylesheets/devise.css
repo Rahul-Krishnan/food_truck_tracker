@@ -29,3 +29,8 @@ a:link, a:visited {
   font-family: 'Bitter';
   border-radius: 7px;
 }
+
+.field {
+  margin: 0 auto;
+  width: 75%;
+}

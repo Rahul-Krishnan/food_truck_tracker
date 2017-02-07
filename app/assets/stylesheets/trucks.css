@@ -1,0 +1,56 @@
+.truck-title {
+  background-color: #132C24;
+  margin: 0 auto;
+  padding: 5px;
+  opacity: 1;
+  color: white;
+  width: 75%;
+  border-radius: 20px;
+  font-family: 'Bitter';
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.truck-list-container {
+  background-color: #132C24;
+  margin: 0 auto;
+  padding: 10px;
+  opacity: 0.9;
+  color: white;
+  width: 75%;
+  border-radius: 20px;
+}
+
+.truck-list-item {
+  padding: 5px;
+  margin: 10px;
+  opacity: 1;
+  width: 75%;
+  border-radius: 20px;
+  font-family: 'Bitter';
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.truck-show-title {
+  font-family: 'Bitter';
+  font-size: 2rem;
+}
+
+.back-box {
+  background-color: #132C24;
+  margin: 0 auto;
+  margin-top: 20px;
+  padding: 10px;
+  opacity: 0.9;
+  color: white;
+  width: 75%;
+  height: 75%;
+  border-radius: 10px;
+  font-family: 'Bitter';
+  font-size: 1.25rem;
+}
+
+.row {
+  background-color: white;
+}
