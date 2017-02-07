@@ -4,7 +4,7 @@
     <% if !(current_user.favorite_trucks.nil?) %>
       <% current_user.favorite_trucks.each do |fav_truck| %>
         <% if fav_truck.user == current_user %>
-        <%= link_to fav_truck.truck.name, truck_path(fav_truck.truck), class: "sub-menu" %></br>
+        <%= link_to fav_truck.truck.name, truck_path(fav_truck.truck), class: "truck-title" %></br>
           <% meal_count = 0 %>
           <% fav_truck.truck.appointments.each do |appointment| %>
             <% if appointment.timeslot.day == Date.today.strftime("%A") %>

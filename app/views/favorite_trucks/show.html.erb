@@ -1,18 +1,17 @@
-<div class="menu">
-  <h1><%= @truck.truck.name %></h1>
+<div class="back-box">
+  <h1 class="truck-show-title"><%= @truck.truck.name %></h1>
   <ul class="truck-info">
     <div class="content">
       <% if !@truck.truck.appointments.empty? %>
+        <ul>
         <% @truck.truck.appointments.each do |appointment| %>
             <%= appointment.timeslot.day %>
             <%= appointment.timeslot.time %>: </br>
             <%= appointment.location.address %> </br></br>
           <% end %>
-          </br>
+        </ul>
       <% end %>
-      <li>
-        <span class="prompt"><%= link_to "Remove favorites", favorite_truck_path(@truck), data: {:confirm => 'Are you sure?'}, :method => :delete %></span>
-      </li>
+        <span class="prompt"><%= link_to "Remove from favorites", favorite_truck_path(@truck), data: {:confirm => 'Are you sure?'}, :method => :delete, class: "fat-links" %></span>
     </div>
   </ul>
 </div>
