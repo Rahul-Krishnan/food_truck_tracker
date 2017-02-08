@@ -6,7 +6,8 @@
   opacity: 0.9;
   border-radius: 40px;
   color: white;
-  margin: 2em;
+  width: 75%;
+  margin-top: 10px;
 }
 
 .sub-heading {
