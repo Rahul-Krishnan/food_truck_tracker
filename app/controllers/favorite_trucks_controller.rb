@@ -30,6 +30,6 @@ class FavoriteTrucksController < ApplicationController
   def destroy
     @truck = FavoriteTruck.where(truck: params[:id], user: current_user)
     FavoriteTruck.destroy(@truck[0].id)
-    render :index
+    redirect_to favorite_trucks_path
   end
 end
