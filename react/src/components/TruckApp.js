@@ -309,7 +309,6 @@ class TruckApp extends Component {
     .then(response => response.json())
     .then(body => {
       let appointments = body;
-          debugger;
       this.setState({ filteredDataList: appointments });
     })
     .catch(error => console.error(`Error in fetch: ${error.message}`));
