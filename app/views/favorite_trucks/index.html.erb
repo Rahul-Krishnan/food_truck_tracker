@@ -6,16 +6,16 @@
       function initMap() {
         let boston = {lat: 42.364506, lng: -71.038887};
         let map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 12,
+          zoom: 13,
           center: boston
         });
 
         let coords = <%= @coordinates.html_safe %>
 
         for(let i = 0; i < coords.length; i++) {
-          let latLong = new google.maps.LatLong(coords[i].lat, coords[i].lng)
+          let latLng = new google.maps.LatLng(coords[i].lat, coords[i].long)
           let marker = new google.maps.Marker({
-            position: latLong,
+            position: latLng,
             map: map
           })
         };

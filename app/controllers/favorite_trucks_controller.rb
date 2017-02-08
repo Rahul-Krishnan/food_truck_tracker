@@ -9,7 +9,9 @@ class FavoriteTrucksController < ApplicationController
     if !(current_user.favorite_trucks.nil?)
       current_user.favorite_trucks.each do |fav_truck|
         fav_truck.truck.appointments.map do |appointment|
-          coordinates << { lat: appointment.location["latitude"], long: appointment.location["longitude"] }
+          if appointment.timeslot.day == Date.today.strftime("%A")
+            coordinates << { lat: appointment.location["latitude"], long: appointment.location["longitude"] }
+          end
         end
       end
     end
