@@ -71,3 +71,16 @@
   border-radius: 3rem;
   padding: 10px;
 }
+
+.map-location {
+  background-color: #FF9600;
+  margin: 0 auto;
+  padding: 5px;
+  opacity: 1;
+  color: #2B423A;
+  width: 100%;
+  border-radius: 5px;
+  font-family: 'Bitter';
+  font-size: 1rem;
+  font-weight: 600;
+}
