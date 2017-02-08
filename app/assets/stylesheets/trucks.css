@@ -23,7 +23,6 @@
 
 .truck-list-item {
   padding: 5px;
-  margin: 10px;
   opacity: 1;
   width: 75%;
   border-radius: 20px;
@@ -62,4 +61,13 @@
   font-family: 'Bitter';
   font-size: 1.2rem;
   font-weight: 600;
+}
+
+#map {
+  height: 20rem;
+  width: 50%;
+  margin: 0 auto;
+  margin-bottom: 10px;
+  border-radius: 3rem;
+  padding: 10px;
 }
