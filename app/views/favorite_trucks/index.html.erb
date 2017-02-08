@@ -4,7 +4,7 @@
     <div id="map"></div>
     <script>
       function initMap() {
-        let boston = {lat: 42.364506, lng: -71.038887};
+        let boston = {lat: 42.354506, lng: -71.068887};
         let map = new google.maps.Map(document.getElementById('map'), {
           zoom: 13,
           center: boston
@@ -18,8 +18,20 @@
             position: latLng,
             map: map
           })
-        };
+          let message = `${coords[i].name}`;
+          console.log(message)
+          function addInfoWindow(marker, message) {
+            let infoWindow = new google.maps.InfoWindow({
+                content: `<div class="truck-title">${message}</div>`
+            });
+            google.maps.event.addListener(marker, 'click', function () {
+                infoWindow.open(map, marker);
+            });
+          }
+          marker.addListener('click', addInfoWindow(marker, message));
+        }
       }
+
     </script>
     <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD9E_4wksM2ecTs-lrzsOqkIH_xys49N_8&callback=initMap">
