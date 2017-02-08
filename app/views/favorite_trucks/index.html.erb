@@ -1,4 +1,31 @@
 <h1 class="title">Your Trucks Today</h1>
+<html>
+  <body>
+    <div id="map"></div>
+    <script>
+      function initMap() {
+        let boston = {lat: 42.364506, lng: -71.038887};
+        let map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 12,
+          center: boston
+        });
+
+        let coords = <%= @coordinates.html_safe %>
+
+        for(let i = 0; i < coords.length; i++) {
+          let latLong = new google.maps.LatLong(coords[i].lat, coords[i].lng)
+          let marker = new google.maps.Marker({
+            position: latLong,
+            map: map
+          })
+        };
+      }
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD9E_4wksM2ecTs-lrzsOqkIH_xys49N_8&callback=initMap">
+    </script>
+  </body>
+</html>
 
 <div class="menu">
     <% if !(current_user.favorite_trucks.nil?) %>

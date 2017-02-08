@@ -2,6 +2,7 @@ source 'https://rubygems.org/'
 
 gem 'devise'
 gem 'foundation-rails'
+gem 'geocoder'
 gem 'httparty'
 gem 'jquery-rails'
 gem 'nokogiri'

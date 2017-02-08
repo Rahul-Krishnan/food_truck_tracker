@@ -11,6 +11,7 @@ if (Rails.env.development? || Rails.env.production? || Rails.env.test?)
   Timeslot.destroy_all
   Location.destroy_all
   Truck.destroy_all
+  FavoriteTruck.destroy_all
 
   Appointment.create(truck: Truck.find_or_create_by(name: "Baja Taco Truck"), location: Location.find_or_create_by(address: "Greenway, Rowes Wharf Plaza"), timeslot: Timeslot.find_or_create_by(day: "Friday", time: "Lunch"))
   Appointment.create(truck: Truck.find_or_create_by(name: "Baja Taco Truck"), location: Location.find_or_create_by(address: "Greenway, Rowes Wharf Plaza"), timeslot: Timeslot.find_or_create_by(day: "Thursday", time: "Lunch"))

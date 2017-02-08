@@ -5,6 +5,15 @@ class FavoriteTrucksController < ApplicationController
 
   def index
     @trucks = FavoriteTruck.all
+    coordinates = []
+    if !(current_user.favorite_trucks.nil?)
+      current_user.favorite_trucks.each do |fav_truck|
+        fav_truck.truck.appointments.map do |appointment|
+          coordinates << { lat: appointment.location["latitude"], long: appointment.location["longitude"] }
+        end
+      end
+    end
+    @coordinates = JSON.unparse(coordinates)
   end
 
   def show
