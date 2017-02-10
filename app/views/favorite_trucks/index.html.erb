@@ -21,7 +21,7 @@
           let message = `${coords[i].name}`;
           function addInfoWindow(marker, message) {
             let infoWindow = new google.maps.InfoWindow({
-                content: `<div class="map-location">${message}</div>`
+                content: `<a href='/trucks/${coords[i].id}'><div class="map-location">${message}</div></a>`
             });
             google.maps.event.addListener(marker, 'click', function () {
                 infoWindow.open(map, marker);
