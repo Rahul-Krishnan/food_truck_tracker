@@ -6,8 +6,8 @@ class Api::V1::AppointmentsController < ApplicationController
   end
 
   def show
-    @appointments = Appointment.all
-    render json: {appointments: @appointments}
+    @appointment = Appointment.find(params[:id])
+    render json: {appointment: @appointment}
   end
 
 end

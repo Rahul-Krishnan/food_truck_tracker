@@ -291,6 +291,24 @@ class TruckApp extends Component {
       sortBy: "truck",
       sortDir: null
     };
+    this.pulledList = [{ "appointments": [
+        {
+          "id": 985,
+          "truck_id": 133,
+          "timeslot_id": 41,
+          "location_id": 49,
+          "created_at": "2017-02-09T19:38:47.751Z",
+          "updated_at": "2017-02-09T19:38:47.751Z"
+        },
+        {
+          "id": 986,
+          "truck_id": 133,
+          "timeslot_id": 42,
+          "location_id": 49,
+          "created_at": "2017-02-09T19:38:47.761Z",
+          "updated_at": "2017-02-09T19:38:47.761Z"
+        }
+      ]}];
   }
 
   getAppointments() {
@@ -315,6 +333,7 @@ class TruckApp extends Component {
   }
 
   componentDidMount() {
+    debugger;
     this.getAppointments();
   }
 
@@ -326,6 +345,8 @@ class TruckApp extends Component {
             </div>
         </div>;
   }
+
+// _onFilterChange method is the problem- need to replace 'rows' with 'appointments', then match column and field names
 
   _onFilterChange(cellDataKey, event) {
     if (!event.target.value) {
@@ -375,6 +396,7 @@ class TruckApp extends Component {
   }
 
   render() {
+    debugger;
     let sortDirArrow = '';
     if (this.state.sortDir !== null){
       sortDirArrow = this.state.sortDir == 'DESC' ? ' ↓' : ' ↑';
