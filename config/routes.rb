@@ -11,7 +11,10 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1 do
-      resource :appointments
+      resources :appointments
+      resources :trucks
+      resources :locations
+      resources :timeslots
     end
   end
 end
