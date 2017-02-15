@@ -18,7 +18,7 @@
             position: latLng,
             map: map
           })
-          let message = `${coords[i].name}`;
+          let message = `${coords[i].name}: ${coords[i].meal}`;
           function addInfoWindow(marker, message) {
             let infoWindow = new google.maps.InfoWindow({
                 content: `<a href='/trucks/${coords[i].id}'><div class="map-location">${message}</div></a>`
