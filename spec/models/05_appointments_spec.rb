@@ -1,6 +1,10 @@
 require 'spec_helper'
 
 describe Appointment do
+  let!(:truck) { FactoryGirl.create(:truck) }
+  let!(:timeslot) { FactoryGirl.create(:timeslot) }
+  let!(:location) { FactoryGirl.create(:location) }
+  let!(:user) { FactoryGirl.create(:user) }
   let!(:appointment) { FactoryGirl.create(:appointment) }
 
   xdescribe ".new" do
