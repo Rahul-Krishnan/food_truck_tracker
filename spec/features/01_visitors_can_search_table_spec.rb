@@ -1,11 +1,11 @@
 require 'rails_helper'
 
-feature 'visitors can add new podcasts' do
+feature 'visitors can open search table' do
   let!(:comedy) { FactoryGirl.create(:category) }
   let!(:documentary) { FactoryGirl.create(:category, name: 'Documentary') }
   let!(:podcast) { FactoryGirl.create(:podcast) }
 
-  xscenario 'visitor adds new podcast successfully' do
+  xscenario 'visitor sees home page' do
     visit '/'
     click_on "Sign in"
     fill_in 'Email', with: "chewy@gmail.com"
