@@ -1,54 +1,25 @@
-import PodcastList from '../src/components/PodcastList';
+require "rails_helper"
 
-describe('Podcast List', () => {
-  let wrapper;
+RSpec.describe Api::V1::AppointmentsController, type: :controller do
+  let!(:appointment) do
+    FactoryGirl.create(:appointment)
+  end
 
-  beforeEach(() => {
-    spyOn(global, 'fetch').and.callFake(url => {
-      if (url.endsWith('/api/v1/podcasts.json')) {
-        return createResponseFromFixture('podcasts/podcastsIndex');
-      } else if (url.endsWith('/api/v1/podcasts/4/providers.json')) {
-        return createResponseFromFixture('providers/providersIndex_1');
-      } else if (url.endsWith('/api/v1/podcasts/1/providers.json')) {
-        return createResponseFromFixture('providers/providersIndex_1');
-      } else if (url.endsWith('/api/v1/podcasts/2/providers.json')) {
-        return createResponseFromFixture('providers/providersIndex_2');
-      }
-    });
-  });
+  xdescribe "GET#index" do
+    it "should return the appointment list" do
+      get :index
+      json = JSON.parse(response.body)
 
-  afterEach(() => {
-    wrapper.unmount();
-  });
+      expect(json[0]["truck"]).to eq("Chicken & Rice Guys")
+    end
+  end
 
-  describe('visiting the Podcastaway homepage', () => {
-    beforeEach(() => {
-      wrapper = mount(
-        <PodcastList />
-      );
-    });
+  xdescribe "GET#show" do
+    it "should return appointment details" do
+      get :index, id: 1
+      json = JSON.parse(response.body)
 
-    it('lists all the podcast names', done => {
-      setTimeout(() => {
-        let pageText = wrapper.text();
-
-        expect(pageText).toMatch('This American Life');
-        expect(pageText).toMatch('Serial');
-        expect(pageText).toMatch('Hardcore History');
-
-        done();
-      }, 0);
-    });
-
-    it('lists the providers under the names of the podcasts', done => {
-      setTimeout(() => {
-        let pageText = wrapper.text();
-
-        expect(pageText).toMatch('NPR');
-        expect(pageText).toMatch('HHC.com');
-
-        done();
-      }, 0);
-    });
-  });
-});
+      expect(json["truck_id"]).to eq("30")
+    end
+  end
+end
