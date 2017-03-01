@@ -2,7 +2,7 @@
 ![Code Climate](https://codeclimate.com/github/Rahul-Krishnan/food_truck_tracker.png)
 <!-- ![Coverage Status](https://coveralls.io/repos/github/Rahul-Krishnan/food_truck_tracker/badge.svg?branch=tokens) -->
 
-# Project Title
+# SnackTracker
 
 SnackTracker is a web application built on Rails that allows you to search for and save food trucks in Boston!
 
