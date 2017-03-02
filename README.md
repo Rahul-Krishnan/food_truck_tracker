@@ -4,7 +4,7 @@
 
 # SnackTracker
 
-SnackTracker is a web application built on Rails that allows you to search for and save food trucks in Boston!
+SnackTracker is a web application built on Rails that allows you to search for and save food trucks in Boston.
 
 ### Features
 
