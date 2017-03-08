@@ -1,9 +1,10 @@
 require 'rails_helper'
 
 feature 'visitors can add new podcasts' do
-  let!(:comedy) { FactoryGirl.create(:category) }
-  let!(:documentary) { FactoryGirl.create(:category, name: 'Documentary') }
-  let!(:podcast) { FactoryGirl.create(:podcast) }
+  let!(:truck) { FactoryGirl.create(:truck) }
+  let!(:location) { FactoryGirl.create(:location) }
+  let!(:timeslot) { FactoryGirl.create(:timeslot) }
+  let!(:user) { FactoryGirl.create(:user) }
 
   xscenario 'visitor adds new podcast successfully' do
     visit '/'
