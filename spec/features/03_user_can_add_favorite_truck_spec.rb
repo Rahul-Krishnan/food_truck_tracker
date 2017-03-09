@@ -39,7 +39,6 @@ feature 'user can add favorite truck' do
     click_button 'Sign in'
 
     visit new_podcast_path
-
     click_button 'Add podcast'
     expect(page).to have_content "Name can't be blank"
     expect(page).to have_content "Provider can't be blank"
