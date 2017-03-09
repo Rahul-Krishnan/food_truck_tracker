@@ -1,42 +1,19 @@
 require 'rails_helper'
 
 feature 'visitors can open search table' do
-  let!(:comedy) { FactoryGirl.create(:category) }
-  let!(:documentary) { FactoryGirl.create(:category, name: 'Documentary') }
-  let!(:podcast) { FactoryGirl.create(:podcast) }
+  let!(:truck) { FactoryGirl.create(:truck) }
+  let!(:location) { FactoryGirl.create(:location) }
+  let!(:timeslot) { FactoryGirl.create(:timeslot) }
+  let!(:user) { FactoryGirl.create(:user) }
 
-  xscenario 'visitor sees home page' do
+  scenario 'visitor sees home page' do
     visit '/'
-    click_on "Sign in"
-    fill_in 'Email', with: "chewy@gmail.com"
-    fill_in 'Password', with: "password"
-    click_button 'Sign in'
 
-    visit new_podcast_path
-    expect(page).to have_content 'Add a podcast'
-
-    within('.name') do
-      fill_in 'Name', with: 'Fiesta Parrot'
-    end
-    fill_in 'Description', with: "Just a cool group of coding friends chattin'
-      about life. The best podcast ever."
-    check 'Documentary'
-    check 'Comedy'
-    fill_in 'Release year', with: 2017
-    fill_in 'Provider', with: 'Launch Academy'
-    within('.host') do
-      fill_in 'podcast_hosts_attributes_0_name', with: 'MRKD'
-      fill_in 'podcast_hosts_attributes_1_name', with: 'Launch'
-    end
-
-    click_button 'Add podcast'
-
-    expect(page).to have_content 'Podcast added successfully'
-    expect(page).to have_content 'Fiesta Parrot'
-    expect(page).to have_content 'Launch Academy'
+    expect(page).to have_content 'SnackTracker'
+    expect(page).not_to have_content 'Your trucks'
   end
 
-  xscenario "user submits a podcast with the name 'Howard Stern Show'" do
+  xscenario "user can search appointment table" do
     visit '/'
     click_on "Sign in"
     fill_in 'Email', with: "chewy@gmail.com"
