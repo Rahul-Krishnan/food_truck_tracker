@@ -31,16 +31,19 @@ feature 'user can add favorite truck' do
     expect(page).to have_content 'Chicken & Rice Guys'
   end
 
-  xscenario 'visitor does not provide proper information for a podcast' do
+  xscenario 'user can see google maps view of truck results' do
     visit '/'
     click_on "Sign in"
     fill_in 'Email', with: "chewy@gmail.com"
     fill_in 'Password', with: "password"
     click_button 'Sign in'
 
-    visit new_podcast_path
-    click_button 'Add podcast'
-    expect(page).to have_content "Name can't be blank"
+    visit trucks_path
+    click_on "Chicken & Rice Guys"
+    click_on "Make favorite"
+
+    visit favorite_trucks_path
+    expect(page).not_to have_content "<div id = 'map'></div>"
     expect(page).to have_content "Provider can't be blank"
   end
 
