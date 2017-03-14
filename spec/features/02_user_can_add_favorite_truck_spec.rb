@@ -60,19 +60,4 @@ feature 'user can add favorite truck' do
     expect(page).to have_content 'Add a podcast'
     expect(page).to have_content "Provider can't be blank"
   end
-
-  xscenario 'user submits duplicate podcast-provider pair' do
-    visit '/'
-    click_on "Sign in"
-    fill_in 'Email', with: "chewy@gmail.com"
-    fill_in 'Password', with: "password"
-    click_button 'Sign in'
-
-    visit new_podcast_path
-    fill_in 'Name', with: 'This American Life'
-    fill_in 'Provider', with: 'NPR'
-    click_button 'Add podcast'
-
-    expect(page).to have_content('Name has already been taken')
-  end
 end
