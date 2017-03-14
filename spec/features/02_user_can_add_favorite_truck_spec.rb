@@ -43,7 +43,7 @@ feature 'user can add favorite truck' do
     click_on "Make favorite"
 
     visit favorite_trucks_path
-    expect(page).not_to have_content 'Chicken'
+    expect(find("#map")).not_to have_no_content
   end
 
   xscenario 'user submits an incomplete entry with no provider' do
