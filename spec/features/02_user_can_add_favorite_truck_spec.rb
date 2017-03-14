@@ -31,7 +31,7 @@ feature 'user can add favorite truck' do
     expect(page).to have_content 'Chicken & Rice Guys'
   end
 
-  scenario 'user can see google maps view of truck results' do
+  xscenario 'user can see google maps view of truck results' do
     visit '/'
     click_on "Sign in"
     fill_in 'Email', with: "chewy@gmail.com"
