@@ -31,7 +31,7 @@ feature 'user can add favorite truck' do
     expect(page).to have_content 'Chicken & Rice Guys'
   end
 
-  scenario 'user can see google maps view of truck results' do
+  scenario 'user can see google maps view' do
     visit '/'
     click_on "Sign in"
     fill_in 'Email', with: "chewy@gmail.com"
@@ -44,20 +44,5 @@ feature 'user can add favorite truck' do
 
     visit favorite_trucks_path
     expect(find("#map")).not_to have_no_content
-  end
-
-  xscenario 'user submits an incomplete entry with no provider' do
-    visit '/'
-    click_on "Sign in"
-    fill_in 'Email', with: "chewy@gmail.com"
-    fill_in 'Password', with: "password"
-    click_button 'Sign in'
-
-    visit new_podcast_path
-    fill_in 'Name', with: 'Howard Stern Show'
-    click_button 'Add podcast'
-
-    expect(page).to have_content 'Add a podcast'
-    expect(page).to have_content "Provider can't be blank"
   end
 end

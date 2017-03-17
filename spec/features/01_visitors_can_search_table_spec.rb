@@ -10,7 +10,13 @@ feature 'visitors can open search table' do
     visit '/'
 
     expect(page).to have_content 'SnackTracker'
+  end
+
+  xscenario 'visitor cannot see favorite truck list if not logged in' do
+    visit '/'
+
     expect(page).not_to have_content 'Your trucks'
+    expect(page).not_to have_content 'Your account'
   end
 
   xscenario "user can search appointment table" do
