@@ -10,7 +10,13 @@ feature 'visitors can open search table' do
     visit '/'
 
     expect(page).to have_content 'SnackTracker'
+  end
+
+  xscenario 'visitor cannot see favorite truck list if not logged in' do
+    visit '/'
+
     expect(page).not_to have_content 'Your trucks'
+    expect(page).not_to have_content 'Your account'
   end
 
   xscenario "user can search appointment table" do
@@ -39,47 +45,4 @@ feature 'visitors can open search table' do
     expect(page).to have_content 'Robin'
   end
 
-  xscenario 'visitor does not provide proper information for a podcast' do
-    visit '/'
-    click_on "Sign in"
-    fill_in 'Email', with: "chewy@gmail.com"
-    fill_in 'Password', with: "password"
-    click_button 'Sign in'
-
-    visit new_podcast_path
-
-    click_button 'Add podcast'
-    expect(page).to have_content "Name can't be blank"
-    expect(page).to have_content "Provider can't be blank"
-  end
-
-  xscenario 'user submits an incomplete entry with no provider' do
-    visit '/'
-    click_on "Sign in"
-    fill_in 'Email', with: "chewy@gmail.com"
-    fill_in 'Password', with: "password"
-    click_button 'Sign in'
-
-    visit new_podcast_path
-    fill_in 'Name', with: 'Howard Stern Show'
-    click_button 'Add podcast'
-
-    expect(page).to have_content 'Add a podcast'
-    expect(page).to have_content "Provider can't be blank"
-  end
-
-  xscenario 'user submits duplicate podcast-provider pair' do
-    visit '/'
-    click_on "Sign in"
-    fill_in 'Email', with: "chewy@gmail.com"
-    fill_in 'Password', with: "password"
-    click_button 'Sign in'
-
-    visit new_podcast_path
-    fill_in 'Name', with: 'This American Life'
-    fill_in 'Provider', with: 'NPR'
-    click_button 'Add podcast'
-
-    expect(page).to have_content('Name has already been taken')
-  end
 end
