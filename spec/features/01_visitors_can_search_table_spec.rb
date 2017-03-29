@@ -16,7 +16,7 @@ feature 'visitors can open search table' do
     visit '/'
 
     expect(page).not_to have_content 'Your trucks'
-    expect(page).not_to have_content 'Your account'
+    expect(page).not_to have_content 'Your account...'
   end
 
   xscenario "user can search appointment table" do
