@@ -70,7 +70,7 @@ private
       'ü' => 'u',
       'ñ' => 'n',
       'barbercue' => 'barbecue',
-      'iq cooking' => 'iq cooking on wheels',
+      'iq cooking on wheels' => 'iq cooking',
       'stoked wood fire pizza' => 'stoked wood fired pizza co.',
     }
     word.downcase!&.strip!
