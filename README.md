@@ -13,12 +13,14 @@ The following features exist within the application:
 - The ability to search for food trucks by name, location, day or time in a live-updating React data table.
 - A sign up and authentication system for users (with devise).
 - The ability to save favorite food trucks.
+- The ability to see today's food trucks' schedule, displayed with a Google Maps view.
 - The ability to see your favorite food trucks' daily schedule, displayed with a Google Maps view.
+- The ability to see any given food truck's daily schedule, displayed with a Google Maps view.
 
 
 ## Deployment
 
-This app can be viewed at https://wwww.snack-tracker.herokuapp.com
+This app can be viewed at https://bitly.com/snack-tracker https://www.snack-tracker.herokuapp.com
 
 ## Built With
 
