@@ -1,10 +1,10 @@
 require 'rails_helper'
 
 feature 'visitors can open search table' do
-  let!(:truck) { FactoryGirl.create(:truck) }
-  let!(:location) { FactoryGirl.create(:location) }
-  let!(:timeslot) { FactoryGirl.create(:timeslot) }
-  let!(:user) { FactoryGirl.create(:user) }
+  let!(:truck) { FactoryBot.create(:truck) }
+  let!(:location) { FactoryBot.create(:location) }
+  let!(:timeslot) { FactoryBot.create(:timeslot) }
+  let!(:user) { FactoryBot.create(:user) }
 
   scenario 'visitor sees home page' do
     visit '/'

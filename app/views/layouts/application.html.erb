@@ -4,6 +4,8 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="https://fonts.googleapis.com/css?family=Sansita|Bitter|Bree+Serif|Pacifico|Rokkitt" rel="stylesheet">
+    <link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32" />
+    <link rel="icon" type="image/png" href="favicon-16x16.png" sizes="16x16" />
     <title><%= content_for?(:title) ? yield(:title) : "SnackTracker" %></title>
 
     <%= stylesheet_link_tag    "application" %>
@@ -21,16 +23,15 @@
       </div>
       <div class="top-bar-right">
         <ul class="menu">
-          <% if !user_signed_in? %>
-            <li><%= link_to "All trucks", appointments_path %></li>
+            <li><%= link_to "All Trucks", trucks_path %></li>
+            <li><%= link_to "Find Trucks", appointments_path %></li>
+          <% if user_signed_in? %>
+            <li><%= link_to "Your trucks", favorite_trucks_path %></li>
+            <li><%= link_to "Your account", edit_user_registration_path %></li>
+            <li><%= link_to "Sign out", destroy_user_session_path, method: :delete %></li>
+          <% else %>
             <li><%= link_to "Sign in", new_user_session_path %></li>
             <li><%= link_to "Sign up", new_user_registration_path %></li>
-          <% else %>
-            <li><%= link_to "All trucks", appointments_path %></li>
-            <li><%= link_to "Select Favorites", trucks_path %></li>
-            <li><%= link_to "Your trucks", favorite_trucks_path %></li>
-            <li><%= link_to "Your account...", edit_user_registration_path %></li>
-            <li><%= link_to "Sign out", destroy_user_session_path, method: :delete %></li>
           <% end %>
         </ul>
       </div>

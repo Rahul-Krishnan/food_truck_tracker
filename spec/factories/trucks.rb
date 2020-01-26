@@ -1,5 +1,5 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :truck do
-    name "Chicken & Rice Guys"
+    name { "Chicken & Rice Guys" }
   end
 end

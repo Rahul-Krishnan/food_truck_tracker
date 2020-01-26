@@ -1,6 +1,6 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :timeslot do
-    day "Monday"
-    time "Lunch"
+    day { "Monday" }
+    time { "Lunch" }
   end
 end

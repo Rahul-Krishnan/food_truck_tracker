@@ -11,29 +11,20 @@
   font-weight: 600;
 }
 
-.truck-list-container {
-  background-color: #132C24;
-  margin: 0 auto;
-  padding: 10px;
-  opacity: 0.9;
-  color: white;
-  width: 75%;
-  border-radius: 20px;
-}
-
-.truck-list-item {
-  padding: 5px;
-  opacity: 1;
-  width: 75%;
-  border-radius: 20px;
-  font-family: 'Bitter';
-  font-size: 1rem;
-  font-weight: 600;
-}
-
 .truck-show-title {
   font-family: 'Bitter';
   font-size: 2rem;
+}
+
+.truck-content {
+  margin-top: 24px;
+}
+
+.truck-more-info {
+  font-family: 'Bitter';
+  font-size: 1.5rem;
+  margin: 10px;
+  padding: 5px;
 }
 
 .back-box {
@@ -50,26 +41,23 @@
   font-size: 1.25rem;
 }
 
-.fat-links {
-  background-color: #132C24;
-  margin: 0 auto;
-  padding: 10px;
-  opacity: 1;
-  color: white;
-  width: 75%;
-  border-radius: 20px;
-  font-family: 'Bitter';
-  font-size: 1.2rem;
-  font-weight: 600;
-}
-
 #map {
   height: 20rem;
   width: 75%;
-  margin: 0 auto;
-  margin-bottom: 10px;
+  margin: 1rem auto 3rem;
   border-radius: 3rem;
   padding: 10px;
+}
+
+.map-title {
+  background: linear-gradient(0, rgba(255, 150, 0, 0.1), rgba(255, 150, 0, 0.7));
+  color: #2B423A;
+  font-family: 'Bitter';
+  font-style: italic;
+  font-size: 1.5rem;
+  padding-top: 0;
+  margin-top: -8px;
+  margin-left: 0;
 }
 
 .map-location {
@@ -83,4 +71,111 @@
   font-family: 'Bitter';
   font-size: 1rem;
   font-weight: 600;
+}
+
+.truck-columns-container {
+  background-color: #132C24;
+  border-radius: 10px;
+  display: flex;
+  margin: 0 auto;
+  margin-top: 10px;
+  min-width: 740px;
+  opacity: 0.9;
+  padding: 10px;
+  width: 75%;
+}
+
+.truck-column-left, .truck-column-middle, .truck-column-right {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Bitter';
+  font-size: 1.25rem;
+  margin-top: 10px;
+  padding: 10px;
+  text-align: center;
+}
+
+.truck-column-left {
+  min-width: 304px;
+  width: 35%;
+}
+
+.truck-column-middle {
+  width: 40%;
+}
+
+.truck-column-right {
+  width: 25%;
+}
+
+.truck-favorite-icon {
+  width: 24px;
+  margin-right: 8px;
+}
+
+.truck-days-container {
+  border-bottom: #FF9600 2px dashed;
+  display: flex;
+  justify-content: center;
+}
+
+.truck-day, .truck-day-exists {
+  padding: 6px;
+}
+
+.truck-day-exists {
+  color: #FF9600;
+}
+
+.truck-column-item {
+  padding: 5px;
+  width: 262px;
+}
+
+.truck-column-item-container {
+  display: flex;
+  margin: 5px;
+}
+
+.truck-column-item {
+  border-radius: 20px;
+  display: flex;
+  font-family: 'Bitter';
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.truck-outside-link-container {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  padding: 5px;
+  width: 90px;
+}
+
+.truck-outside-link {
+  align-items: center;
+  color: transparent;
+  display: flex;
+  font-family: 'Bitter';
+  font-size: 1rem;
+  font-weight: 600;
+  justify-content: center;
+  margin: 0 auto;
+  padding: 5px;
+  width: 90px;
+}
+
+.favorite-trucks-container {
+  background-color: #132C24;
+  border-radius: 10px;
+  color: white;
+  font-family: 'Bitter';
+  font-size: 1.25rem;
+  margin: 16px auto;
+  opacity: 0.9;
+  padding: 16px;
+  width: 75%;
 }

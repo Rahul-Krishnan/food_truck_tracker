@@ -1,10 +1,96 @@
-<h1 class="title">Select favorite trucks</h1>
+<% if current_user %>
+  <h1 class="title">Truck Schedules - Save your Favorites!</h1>
+<% else %>
+  <h1 class="title">Truck Schedules -  Sign in to save your Favorites!</h1>
+<% end %>
+<h3 class="map-title">Today's Map Below</h1>
+<div id="map"></div>
 
-<div class="back-box">
-  <% @trucks.each do |truck| %>
-    <div class="small-4 columns">
-      <%= link_to truck.name, truck_path(truck), class: "truck-list-item" %></br>
-    </div>
-  <% end %>
-  .
+<script>
+  function initMap() {
+    let boston = {lat: 42.354506, lng: -71.068887};
+    let map = new google.maps.Map(document.getElementById('map'), {
+      zoom: 13,
+      center: boston
+    });
+
+    let coords = <%= @coordinates.html_safe %>
+
+    for(let i = 0; i < coords.length; i++) {
+      let latLng = new google.maps.LatLng(coords[i].lat, coords[i].long)
+      let marker = new google.maps.Marker({
+        position: latLng,
+        map: map
+      })
+      let message = `${coords[i].name}: ${coords[i].meal}`;
+      function addInfoWindow(marker, message) {
+        let infoWindow = new google.maps.InfoWindow({
+            content: `<a href='/trucks/${coords[i].id}'><div class="map-location">${message}</div></a>`
+        });
+        google.maps.event.addListener(marker, 'mouseover', function () {
+            infoWindow.open(map, marker);
+        });
+      }
+      marker.addListener('onload', addInfoWindow(marker, message));
+    }
+  }
+
+</script>
+<script>
+  function loadScript() {
+    let apiKey = '<%= @api_key.html_safe %>'
+    let script = document.createElement('script');
+    script.type = 'text/javascript';
+    script.src = `https://maps.googleapis.com/maps/api/js?key=${apiKey}&callback=initMap`
+    document.body.appendChild(script);
+  }
+
+  window.onload = loadScript;
+</script>
+
+<div class="truck-columns-container">
+
+  <% sorted_trucks ||= @trucks.sort { |truck1, truck2| truck1.name <=> truck2.name } %>
+
+  <div class="truck-column-left">
+    <% favorite_trucks ||= current_user&.trucks %>
+    <% sorted_trucks.each do |truck| %>
+      <div class="truck-column-item-container">
+        <% if favorite_trucks&.include?(truck) %>
+          <div class="truck-favorite-icon"><img alt="Favorite" src="/assets/star.svg"></div>
+        <% else %>
+          <div class="truck-favorite-icon"><%=""%></div>
+        <% end %>
+        <%= link_to truck.name, truck_path(truck), class: "truck-column-item" %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="truck-column-middle">
+    <% sorted_trucks.each do |truck| %>
+      <div class="truck-days-container">
+        <% days = truck.appointments.map { |appointment| appointment.timeslot.day }.uniq %>
+        <% ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"].each do |day| %>
+          <% if days.include?(day) %>
+            <div class="truck-day-exists"><%= day[0]%></div>
+          <% else %>
+            <div class="truck-day"><%= day[0]%></div>
+          <% end %>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="truck-column-right">
+    <% sorted_trucks.each do |truck| %>
+      <div class="truck-outside-link-container">
+        <% if truck.url %>
+          <%= link_to "Visit Site", truck.url, class: "truck-outside-link", target: "_blank"%>
+        <% else %>
+          <div class="truck-outside-link">Visit Site</div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+
 </div>

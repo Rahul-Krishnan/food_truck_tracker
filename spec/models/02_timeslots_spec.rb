@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe Timeslot do
-  let!(:timeslot) { FactoryGirl.create(:timeslot) }
+  let!(:timeslot) { FactoryBot.create(:timeslot) }
 
   describe ".new" do
     it "has a day" do

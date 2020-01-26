@@ -4,17 +4,19 @@ class FavoriteTrucksController < ApplicationController
   end
 
   def index
-    @trucks = FavoriteTruck.all
     coordinates = []
-    if !(current_user.favorite_trucks.nil?)
-      current_user.favorite_trucks.each do |fav_truck|
-        fav_truck.truck.appointments.map do |appointment|
-          if appointment.timeslot.day == Date.today.strftime("%A")
-            coordinates << { lat: appointment.location["latitude"], long: appointment.location["longitude"], name: appointment.truck["name"], id: appointment.truck.id, meal: appointment.timeslot.time }
-          end
-        end
+    current_user.trucks.each do |truck|
+      truck.appointments.for_day_of_week(Date.today.strftime("%A")).each do |appointment|
+        coordinates << {
+          lat: appointment.location["latitude"],
+          long: appointment.location["longitude"],
+          name: appointment.truck["name"],
+          id: appointment.truck.id,
+          meal: appointment.timeslot.time
+        }
       end
     end
+    @api_key = Rails.application.credentials.google_api_key
     @coordinates = JSON.unparse(coordinates)
   end
 
@@ -28,8 +30,8 @@ class FavoriteTrucksController < ApplicationController
   end
 
   def destroy
-    @truck = FavoriteTruck.where(truck: params[:id], user: current_user)
-    FavoriteTruck.destroy(@truck[0].id)
-    redirect_to favorite_trucks_path
+    @favorite_truck = current_user.favorite_trucks.find_by(truck: params[:truck])
+    FavoriteTruck.destroy(@favorite_truck.id)
+    redirect_to trucks_path
   end
 end

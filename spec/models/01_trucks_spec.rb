@@ -2,7 +2,7 @@ require 'rails_helper'
 require 'pry'
 
 describe Truck do
-  let!(:truck) { FactoryGirl.create(:truck) }
+  let!(:truck) { FactoryBot.create(:truck) }
 
   describe ".new" do
     it "has a name" do
