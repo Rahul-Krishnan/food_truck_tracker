@@ -20,7 +20,7 @@ The following features exist within the application:
 
 ## Deployment
 
-This app can be viewed at https://bitly.com/snack-tracker https://www.snack-tracker.herokuapp.com
+This app can be viewed at https://bit.ly/snack-tracker or https://www.snack-tracker.herokuapp.com
 
 ## Built With
 
