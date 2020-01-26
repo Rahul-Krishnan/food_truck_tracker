@@ -41,7 +41,6 @@ class ScrapeJob < ApplicationJob
 private
   def self.cleanup(word)
     error_fixes = {
-      'ã' => 'a',
       'à' => 'a',
       'á' => 'a',
       'â' => 'a',
