@@ -1,5 +1,5 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :location do
-    address "700 Boylston St, Boston, MA 02116"
+    address { "700 Boylston St, Boston, MA 02116" }
   end
 end

@@ -10,22 +10,22 @@
 
 .sub-title {
   background-color: #FF9600;
-  opacity: 0.9;
+  background-size: 100%;
+  color: #2B423A;
   font-family: 'Bitter';
   font-size: 2rem;
   margin-bottom: 0;
+  opacity: 0.9;
   padding-bottom: 20px;
-  background-size: 100%;
-  color: #2B423A
 }
 
 .details {
-  background-color: #FF9600;
-  opacity: 0.9;
+  background: linear-gradient(0, transparent, #FF9600);
+  background-size: 100%;
+  color: #2B423A;
   font-family: 'Bitter';
   font-size: 1.5rem;
   margin: 0 auto;
-  padding-bottom: 15rem;
-  background-size: 100%;
-  color: #2B423A
+  opacity: 0.9;
+  padding-bottom: 30rem;
 }

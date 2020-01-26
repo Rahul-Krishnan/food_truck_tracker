@@ -6,10 +6,10 @@ gem 'geocoder'
 gem 'httparty'
 gem 'jquery-rails'
 gem 'nokogiri'
-gem 'pg', '~> 0.18'
+gem 'pg', '~> 0.20'
 gem 'puma', '~> 3.0'
-gem 'rails', '~> 5.0.0'
-gem 'sass-rails', '~> 5.0'
+gem 'rails', '~> 5.2.2'
+gem 'sass-rails', '~> 5.1.0'
 gem 'uglifier', '>= 1.3.0'
 
 group :development do
@@ -21,7 +21,8 @@ end
 group :development, :test do
   gem 'capybara'
   gem 'database_cleaner'
-  gem 'factory_girl_rails'
+  gem 'dotenv-rails', '2.2.2'
+  gem 'factory_bot_rails'
   gem 'launchy'
   gem 'pry-rails'
   gem 'rspec-rails', '~> 3.5'
@@ -40,4 +41,4 @@ end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
-ruby '2.2.5'
+ruby '2.5.3'

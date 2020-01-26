@@ -2,7 +2,7 @@ require "rails_helper"
 
 RSpec.describe Api::V1::AppointmentsController, type: :controller do
   let!(:appointment) do
-    FactoryGirl.create(:appointment)
+    FactoryBot.create(:appointment)
   end
 
   xdescribe "GET#index" do

@@ -8,8 +8,10 @@ class TruckApp extends Component {
     this.rows = [];
     this.state = {
       filteredDataList: this.rows,
-      sortBy: "truck",
-      sortDir: null
+      search: "",
+      searchBy: null,
+      sortBy: null,
+      sortDir: "ASC"
     };
     this.getAppointments = this.getAppointments.bind(this);
     this.componentDidMount = this.componentDidMount.bind(this);
@@ -24,7 +26,9 @@ class TruckApp extends Component {
     .then(response => response.json())
     .then(body => {
       appointments = body.appointments;
-      _.setState({ filteredDataList: appointments });
+      _.setState({
+        filteredDataList: appointments
+      });
       _.rows = appointments;
     });
     return _;
@@ -34,45 +38,62 @@ class TruckApp extends Component {
     this.getAppointments();
   }
 
-  _renderHeader(label, cellDataKey) {
-    return <div>
-            <a onClick={this._sortRowsBy.bind(this, cellDataKey)}>{label}</a>
-             <div>
-                <input style={{width:90+'%'}} onChange={this._onFilterChange.bind(this, cellDataKey)}/>
-             </div>
-          </div>;
+  renderHeader(label, cellDataKey) {
+    return (
+      <div>
+        <a onClick={this.sortRowsBy.bind(this, cellDataKey)}>{label}</a>
+        <div>
+          <input
+            id={cellDataKey}
+            onChange={this.onFilterChange.bind(this, cellDataKey)}
+            onClick={this.onFilterClick.bind(this, cellDataKey)}
+            style={{ width: "90%" }}
+          />
+        </div>
+      </div>
+    );
   }
 
-  _onFilterChange(cellDataKey, event) {
+
+  onFilterClick(cellDataKey, event) {
     if (!event.target.value) {
       this.setState({
         filteredDataList: this.rows,
+        search: ""
+      });
+      let filterBy = cellDataKey;
+      this.setState({ filterBy });
+      let headings = ["truck", "location", "day", "time"].filter(
+        heading => heading !== filterBy
+      );
+      headings.forEach(heading => {
+        let inputElement = document.getElementById(heading);
+        inputElement.value = ""
       });
     }
-    let filterBy = event.target.value.toString().toLowerCase();
-    let size = this.rows.length;
-    let filteredList = [];
-    for (let index = 0; index < size; index++) {
-      let v = this.rows[index][cellDataKey];
-      if (v.toString().toLowerCase().indexOf(filterBy) !== -1) {
-        filteredList.push(this.rows[index]);
-      }
-    }
+  }
+
+  onFilterChange(cellDataKey, event) {
+    let search = event.target.value.toString().toLowerCase();
+    let filteredDataList = this.rows.filter(row => {
+      let value = row[cellDataKey].toString().toLowerCase();
+      return value.indexOf(search) !== -1;
+    });
     this.setState({
-      filteredDataList: filteredList,
+      filteredDataList,
+      search
     });
   }
 
-  _sortRowsBy(cellDataKey) {
+  sortRowsBy(cellDataKey) {
     let sortDir = this.state.sortDir;
     let sortBy = cellDataKey;
     if (sortBy == this.state.sortBy) {
       sortDir = this.state.sortDir == 'ASC' ? 'DESC' : 'ASC';
     } else {
       sortDir = 'DESC';
-    }
-    let rows = this.state.filteredDataList.slice();
-    rows.sort((a, b) => {
+    }    
+    const sorter = rows => rows.sort((a, b) => {
       let sortVal = 0;
       if (a[sortBy] > b[sortBy]) {
         sortVal = 1;
@@ -80,14 +101,14 @@ class TruckApp extends Component {
       if (a[sortBy] < b[sortBy]) {
         sortVal = -1;
       }
-
-      if (sortDir == 'DESC') {
+      if (sortDir == "DESC") {
         sortVal = sortVal * -1;
       }
       return sortVal;
-    });
+    })
+    let filteredDataList = sorter(this.state.filteredDataList);
 
-    this.setState({sortBy, sortDir, filteredDataList : rows});
+    this.setState({ filteredDataList, sortBy, sortDir });
   }
 
   render() {
@@ -95,26 +116,51 @@ class TruckApp extends Component {
     if (this.state.sortDir !== null){
       sortDirArrow = this.state.sortDir == 'DESC' ? ' ↓' : ' ↑';
     }
-    return <Table
-        height={360}
+    return (
+      <Table
+        height={500}
         width={860}
         rowsCount={this.state.filteredDataList.length}
         rowHeight={30}
         headerHeight={60}
-        rowGetter={function(rowIndex) {return this.state.filteredDataList[rowIndex]; }.bind(this)}>
-        <Column dataKey="truck" width={240}
-          label={'Truck' + (this.state.sortBy == 'truck' ? sortDirArrow : '')}
-          headerRenderer={this._renderHeader.bind(this)} />
-        <Column  dataKey="location" width={380}
-          label={'Location' + (this.state.sortBy == 'location' ? sortDirArrow : '')}
-          headerRenderer={this._renderHeader.bind(this)} />
-        <Column  dataKey="day" width={120}
-          label={'Day' + (this.state.sortBy == 'day' ? sortDirArrow : '')}
-          headerRenderer={this._renderHeader.bind(this)} />
-        <Column  dataKey="time" width={120}
-          label={'Time' + (this.state.sortBy == 'time' ? sortDirArrow : '')}
-          headerRenderer={this._renderHeader.bind(this)} />
-      </Table>;
+        rowGetter={function(rowIndex) {
+          return this.state.filteredDataList[rowIndex];
+        }.bind(this)}
+      >
+        <Column
+          dataKey="truck"
+          width={240}
+          label={"Truck" + (this.state.sortBy == "truck" ? sortDirArrow : "")}
+          headerRenderer={this.renderHeader.bind(this)}
+        />
+        <Column
+          dataKey="location"
+          width={380}
+          label={
+            "Location" + (this.state.sortBy == "location" ? sortDirArrow : "")
+          }
+          headerRenderer={this.renderHeader.bind(this)}
+        />
+        <Column
+          dataKey="day"
+          width={120}
+          label={"Day" + (this.state.sortBy == "day" ? sortDirArrow : "")}
+          headerRenderer={this.renderHeader.bind(this)}
+        />
+        <Column
+          dataKey="time"
+          width={120}
+          label={"Time" + (this.state.sortBy == "time" ? sortDirArrow : "")}
+          headerRenderer={this.renderHeader.bind(this)}
+        />
+        {/* <Column
+          dataKey="link"
+          width={120}
+          label={"link" + (this.state.sortBy == "link" ? sortDirArrow : "")}
+          headerRenderer={this.renderHeader.bind(this)}
+        /> */}
+      </Table>
+    );
   }
 }
 

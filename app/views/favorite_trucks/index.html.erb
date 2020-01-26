@@ -21,37 +21,47 @@
         let infoWindow = new google.maps.InfoWindow({
             content: `<a href='/trucks/${coords[i].id}'><div class="map-location">${message}</div></a>`
         });
-        google.maps.event.addListener(marker, 'click', function () {
+        google.maps.event.addListener(marker, 'mouseover', function () {
             infoWindow.open(map, marker);
         });
       }
-      marker.addListener('click', addInfoWindow(marker, message));
+      marker.addListener('onload', addInfoWindow(marker, message));
     }
   }
 
 </script>
-<script async defer
-src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD9E_4wksM2ecTs-lrzsOqkIH_xys49N_8&callback=initMap">
+<script>
+  function loadScript() {
+    let apiKey = '<%= @api_key.html_safe %>'
+    let script = document.createElement('script');
+    script.type = 'text/javascript';
+    script.src = `https://maps.googleapis.com/maps/api/js?key=${apiKey}&callback=initMap`
+    document.body.appendChild(script);
+  }
+
+  window.onload = loadScript;
 </script>
 
-<div class="menu">
-    <% if !(current_user.favorite_trucks.nil?) %>
-      <% current_user.favorite_trucks.each do |fav_truck| %>
-        <% if fav_truck.user == current_user %>
-        <%= link_to fav_truck.truck.name, truck_path(fav_truck.truck), class: "truck-title" %></br>
-          <% meal_count = 0 %>
-          <% fav_truck.truck.appointments.each do |appointment| %>
-            <% if appointment.timeslot.day == Date.today.strftime("%A") %>
-              <%= appointment.timeslot.day %>
-              <%= appointment.timeslot.time %>: </br>
-              <%= appointment.location.address %> </br></br>
-              <% meal_count +=1 %>
-            <% end %>
-          <% end %>
-          <% if meal_count == 0 %>
-            <div>No food today!</div> </br>
+<div class="favorite-trucks-container">
+    <% if current_user.trucks.empty? %>
+      <%= link_to "Pick a favorite truck!", trucks_path %>
+    <% else %>
+      <% today = Date.today.strftime("%A") %>
+      <% current_user.trucks.sort do |truck1, truck2| %>
+        <% truck2.appointments.for_day_of_week(today).length <=> truck1.appointments.for_day_of_week(today).length %>
+      <% end.each do |truck| %>
+        <% appointments = truck.appointments.for_day_of_week(today) %>
+        <%= link_to truck.name, truck_path(truck), class: "truck-title" %></br>
+        <% if appointments.empty? %>
+          <div>No food today!</div> </br>
+        <% else %>
+          <% appointments.each do |appointment| %>
+            <%= appointment.timeslot.day %>
+            <%= appointment.timeslot.time %>: </br>
+            <%= appointment.location.address %> </br></br>
           <% end %>
         <% end %>
       <% end %>
     <% end %>
 </div>
+<%= link_to "Back", :back, class: "fat-links" %></div>

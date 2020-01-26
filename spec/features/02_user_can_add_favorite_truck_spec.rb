@@ -1,10 +1,10 @@
 require 'rails_helper'
 
 feature 'user can add favorite truck' do
-  let!(:truck) { FactoryGirl.create(:truck) }
-  let!(:location) { FactoryGirl.create(:location) }
-  let!(:timeslot) { FactoryGirl.create(:timeslot) }
-  let!(:user) { FactoryGirl.create(:user) }
+  let!(:truck) { FactoryBot.create(:truck) }
+  let!(:location) { FactoryBot.create(:location) }
+  let!(:timeslot) { FactoryBot.create(:timeslot) }
+  let!(:user) { FactoryBot.create(:user) }
 
   scenario "user can sign in" do
     visit '/'
@@ -43,6 +43,6 @@ feature 'user can add favorite truck' do
     click_on "Make favorite"
 
     visit favorite_trucks_path
-    expect(find("#map")).not_to have_no_content
+    expect(find("#map")).to be
   end
 end

@@ -1,34 +1,58 @@
 body  {
-    background-image: url("http://ashevillewineandfood.com/sites/default/files/illustration.jpg");
     background-color: white;
-    background-repeat: no-repeat;
-    font-family: 'Bitter';
+    background-image: url("/assets/truck.jpg");
     background-position: top;
+    background-repeat: no-repeat;
     background-size: 100%;
-    text-align: center;
     color: white;
+    font-family: 'Bitter';
+    text-align: center;
+    width: 100%;
 }
 
 #truck-app {
   background-color: #132C24;
+  border-radius: 10px;
+  color: white;
   font-family: 'Bitter';
-  margin: 0 auto;
+  margin: 16px auto;
   padding: 25px 50px 50px 50px;
   opacity: 0.9;
-  color: white;
   width: 960px;
-  border-radius: 10px;
 }
 
 .top-bar, .top-bar-left, .top-bar-right, .menu li {
-  background-color: #FF9600;
   font-weight: 800;
   color: #2B423A;
   padding: 0;
 }
 
-.main-text {
+.top-bar {
   background-color: #FF9600;
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+
+.top-bar-right .menu{
+  display: flex;
+  width: 100%;
+}
+
+.top-bar ul {
+  background-color: none;
+}
+
+@media (max-width: 1000px) {
+  .top-bar {
+    flex-direction: column;
+  }
+  .top-bar-right .menu {
+    flex-direction: column;
+  }
+}
+
+.main-text {
   font-family: 'Pacifico', cursive;
   font-size: 4rem;
   margin-bottom: 0;
@@ -37,14 +61,18 @@ body  {
 
 .menu {
   background-color: #132C24;
-  margin: 0 auto;
-  padding: 10px;
-  opacity: 0.9;
-  color: white;
-  width: 75%;
   border-radius: 10px;
+  color: white;
   font-family: 'Bitter';
   font-size: 1.25rem;
+  margin: 0 auto;
+  opacity: 0.9;
+  padding: 10px;
+  width: 75%;
+}
+
+li {
+  list-style-type: none;
 }
 
 a:link {
@@ -74,8 +102,7 @@ a {
 .title {
   color: white;
   font-family: 'Bitter';
-  background-color: #FF9600;
-  opacity: 0.9;
+  background: linear-gradient(0, rgba(255, 150, 0, 0.7), #FF9600);
   font-size: 2rem;
 }
 
@@ -90,7 +117,29 @@ a {
 
 .bottom-links {
   background-color: #FF9600;
-  padding: 2px;
+  padding: 4px;
   border-radius: 15px;
   margin: 0;
+}
+
+.fat-links {
+  background-color: #132C24;
+  margin: 0 auto;
+  padding: 10px;
+  opacity: 1;
+  color: #2B423A;
+  cursor: pointer;
+  width: 75%;
+  border-radius: 20px;
+  font-family: 'Bitter';
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.fat-links:hover {
+  color: white;
+}
+
+.prompt {
+  margin: 16px;
 }

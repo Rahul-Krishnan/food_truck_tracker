@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe Location do
-  let!(:location) { FactoryGirl.create(:location) }
+  let!(:location) { FactoryBot.create(:location) }
 
   describe ".new" do
     it "has an address" do

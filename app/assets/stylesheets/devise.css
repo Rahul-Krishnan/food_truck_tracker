@@ -17,12 +17,24 @@
 label[for*="user"] {
   color: white;
   font-family: 'Bitter';
+  font-size: 1.2rem;
+  margin-top: 2rem;
 }
 
 input[type="submit"] {
   background-color: #FF9600;
+  border-radius: 7px;
+  display: flex;
+  margin: 16px auto;
+  padding: 10px;
+  opacity: 1;
+  color: #2B423A;
+  cursor: pointer;
+  width: 75%;
   font-family: 'Bitter';
-  border-radius: 10px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  width: fit-content;
 }
 
 a:link, a:visited {
@@ -34,4 +46,24 @@ a:link, a:visited {
 .field {
   margin: 0 auto;
   width: 75%;
+}
+
+.devise-fat-links {
+  background-color: #FF9600;
+  border-radius: 7px;
+  display: flex;
+  margin: 0 auto;
+  padding: 10px;
+  opacity: 1;
+  color: #2B423A;
+  cursor: pointer;
+  width: 75%;
+  font-family: 'Bitter';
+  font-size: 1.2rem;
+  font-weight: 600;
+  width: fit-content;
+}
+
+input[type="submit"]:hover, .devise-fat-links:hover {
+  color: white;
 }
