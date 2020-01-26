@@ -29,8 +29,6 @@
     }
   }
 
-</script>
-<script>
   function loadScript() {
     let apiKey = '<%= @api_key.html_safe %>'
     let script = document.createElement('script');
@@ -44,7 +42,7 @@
 
 <div class="favorite-trucks-container">
     <% if current_user.trucks.empty? %>
-      <%= link_to "Pick a favorite truck!", trucks_path %>
+      <%= link_to "Pick a favorite truck!", trucks_path, class: "fat-links" %>
     <% else %>
       <% today = Date.today.strftime("%A") %>
       <% current_user.trucks.sort do |truck1, truck2| %>
