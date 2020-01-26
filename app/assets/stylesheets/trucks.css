@@ -97,7 +97,7 @@
 }
 
 .truck-column-left {
-  min-width: 304px;
+  min-width: 380px;
   width: 35%;
 }
 
@@ -130,7 +130,7 @@
 
 .truck-column-item {
   padding: 5px;
-  width: 262px;
+  width: 300px;
 }
 
 .truck-column-item-container {
