@@ -20,7 +20,6 @@
         let infoWindow = new google.maps.InfoWindow({
             content: `<div class="map-location">${message}</div>`
         });
-        infoWindow.open(map, marker);
         google.maps.event.addListener(marker, 'click', function () {
             infoWindow.open(map, marker);
         });

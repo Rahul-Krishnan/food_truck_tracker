@@ -4,29 +4,9 @@ class FavoriteTrucksController < ApplicationController
   end
 
   def index
-    coordinates = []
-    lat_lng = {}
-    current_user.trucks.each do |truck|
-      truck.appointments.for_day_of_week(Date.today.strftime("%A")).each do |appointment|
-        latitude = appointment.location.latitude
-        longitude = appointment.location.longitude
-        curr_lat_lng = "#{latitude},#{longitude}"
-        while lat_lng[curr_lat_lng]
-          latitude += 0.0005 * (rand(2) * 2 - 1)
-          longitude += 0.0005 * (rand(2) * 2 - 1)
-          curr_lat_lng = "#{latitude},#{longitude}"
-        end
-        lat_lng[curr_lat_lng] = true
-
-        coordinates << {
-          lat: latitude,
-          long: longitude,
-          name: appointment.truck.name,
-          id: appointment.truck.id,
-          meal: appointment.timeslot.time
-        }
-      end
-    end
+    appointments = current_user.truck_appointments.for_day_of_week(Time.current.strftime("%A"))
+    coordinates = AppointmentsCoordinatesFinder.perform(appointments: appointments)
+    
     @api_key = Rails.application.credentials.google_api_key
     @coordinates = JSON.unparse(coordinates)
   end
