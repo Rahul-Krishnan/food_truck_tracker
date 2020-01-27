@@ -1,5 +1,5 @@
 FactoryBot.define do
   factory :truck do
-    name { "Chicken & Rice Guys" }
+    sequence(:name) { |n| "Chicken & Rice Guys #{n}" }
   end
 end

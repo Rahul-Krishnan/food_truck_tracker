@@ -8,19 +8,20 @@ feature 'user can add favorite truck' do
 
   scenario "user can sign in" do
     visit '/'
-    click_on "Sign in"
-    fill_in 'Email', with: "chewy@gmail.com"
-    fill_in 'Password', with: "password"
+    click_on "Sign In"
+    fill_in 'Email', with: "#{user.email}"
+    fill_in 'Password', with: "#{user.password}"
     click_button 'Sign in'
 
-    expect(page).to have_content 'Your trucks'
+    expect(page).to have_content 'Your Trucks'
+    expect(page).to have_content 'Your Account'
   end
 
   scenario 'user adds new favorite truck successfully' do
     visit '/'
-    click_on "Sign in"
-    fill_in 'Email', with: "chewy@gmail.com"
-    fill_in 'Password', with: "password"
+    click_on "Sign In"
+    fill_in 'Email', with: "#{user.email}"
+    fill_in 'Password', with: "#{user.password}"
     click_button 'Sign in'
 
     visit trucks_path
@@ -33,9 +34,9 @@ feature 'user can add favorite truck' do
 
   scenario 'user can see google maps view' do
     visit '/'
-    click_on "Sign in"
-    fill_in 'Email', with: "chewy@gmail.com"
-    fill_in 'Password', with: "password"
+    click_on "Sign In"
+    fill_in 'Email', with: "#{user.email}"
+    fill_in 'Password', with: "#{user.password}"
     click_button 'Sign in'
 
     visit trucks_path

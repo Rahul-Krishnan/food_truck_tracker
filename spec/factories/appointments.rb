@@ -1,5 +1,7 @@
 FactoryBot.define do
   factory :appointment do
-    # this needs to have all elements constructed first
+    truck
+    location
+    timeslot
   end
 end
