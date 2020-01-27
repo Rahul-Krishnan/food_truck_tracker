@@ -69,7 +69,7 @@
   <div class="truck-column-middle">
     <% sorted_trucks.each do |truck| %>
       <div class="truck-days-container">
-        <% days = truck.appointments.map { |appointment| appointment.timeslot.day }.uniq %>
+        <% days = truck.appointments.map { |appointment| appointment.day }.uniq %>
         <% ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"].each do |day| %>
           <% if days.include?(day) %>
             <div class="truck-day-exists"><%= day[0]%></div>

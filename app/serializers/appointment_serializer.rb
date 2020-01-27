@@ -7,7 +7,7 @@ class AppointmentSerializer < BaseSerializer
   )
 
   def location
-    object.address
+    object.short_address
   end
 
   def truck

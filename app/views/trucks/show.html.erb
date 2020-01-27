@@ -53,9 +53,9 @@
         <ul>
         <% @truck.appointments.each do |appointment| %>
             <li class="appointment-list-items">
-            <%= appointment.timeslot.day %>
-            <%= appointment.timeslot.time %>: </br>
-            <%= appointment.location.address %> </br></br>
+            <%= appointment.day %>
+            <%= appointment.time %>: </br>
+            <%= appointment.short_address %> </br></br>
             </li>
           <% end %>
         </ul>

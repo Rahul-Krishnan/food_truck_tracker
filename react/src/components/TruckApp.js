@@ -118,7 +118,7 @@ class TruckApp extends Component {
     return (
       <Table
         height={500}
-        width={860}
+        width={960}
         rowsCount={this.state.filteredDataList.length}
         rowHeight={30}
         headerHeight={60}
@@ -134,7 +134,7 @@ class TruckApp extends Component {
         />
         <Column
           dataKey="location"
-          width={380}
+          width={480}
           label={
             "Location" + (this.state.sortBy == "location" ? sortDirArrow : "")
           }

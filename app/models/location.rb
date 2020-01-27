@@ -11,4 +11,8 @@ class Location < ApplicationRecord
     loc.latitude.present? && loc.longitude.present? &&
     (loc.latitude_changed? || loc.longitude_changed?)
   end
+
+  def short_address
+    address.split(', Boston, Suffolk County, Massachusetts')[0]
+  end
 end

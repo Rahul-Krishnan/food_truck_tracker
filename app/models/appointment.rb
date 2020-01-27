@@ -8,6 +8,7 @@ class Appointment < ApplicationRecord
   delegate :name, to: :truck
   delegate :url, to: :truck
   delegate :address, to: :location
+  delegate :short_address, to: :location
   delegate :latitude, to: :location
   delegate :longitude, to: :location
 
