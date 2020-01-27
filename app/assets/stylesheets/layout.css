@@ -141,5 +141,6 @@ a {
 }
 
 .prompt {
+  display: flex;
   margin: 16px;
 }
