@@ -8,9 +8,9 @@ feature 'user can see and edit favorite trucks schedule' do
 
   scenario 'user can see favorite truck schedule details' do
     visit '/'
-    click_on "Sign in"
-    fill_in 'Email', with: "chewy@gmail.com"
-    fill_in 'Password', with: "password"
+    click_on "Sign In"
+    fill_in 'Email', with: "#{user.email}"
+    fill_in 'Password', with: "#{user.password}"
     click_button 'Sign in'
 
     visit trucks_path
@@ -24,9 +24,9 @@ feature 'user can see and edit favorite trucks schedule' do
 
   scenario 'user can remove favorite truck' do
     visit '/'
-    click_on "Sign in"
-    fill_in 'Email', with: "chewy@gmail.com"
-    fill_in 'Password', with: "password"
+    click_on "Sign In"
+    fill_in 'Email', with: "#{user.email}"
+    fill_in 'Password', with: "#{user.password}"
     click_button 'Sign in'
 
     visit trucks_path

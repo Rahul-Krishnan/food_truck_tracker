@@ -25,11 +25,10 @@ class TruckApp extends Component {
     })
     .then(response => response.json())
     .then(body => {
-      appointments = body.appointments;
       _.setState({
-        filteredDataList: appointments
+        filteredDataList: body
       });
-      _.rows = appointments;
+      _.rows = body;
     });
     return _;
   }

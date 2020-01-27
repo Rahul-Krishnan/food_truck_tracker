@@ -21,7 +21,6 @@
         let infoWindow = new google.maps.InfoWindow({
             content: `<a href='/trucks/${coords[i].id}'><div class="map-location">${message}</div></a>`
         });
-        infoWindow.open(map, marker);
         google.maps.event.addListener(marker, 'click', function () {
             infoWindow.open(map, marker);
         });
@@ -48,7 +47,7 @@
     <% if current_user.trucks.empty? %>
       <%= link_to "Pick a favorite truck!", trucks_path, class: "fat-links" %>
     <% else %>
-      <% today = Date.today.strftime("%A") %>
+      <% today = Time.current.strftime("%A") %>
       <% current_user.trucks.sort do |truck1, truck2| %>
         <% truck2.appointments.for_day_of_week(today).length <=> truck1.appointments.for_day_of_week(today).length %>
       <% end.each do |truck| %>

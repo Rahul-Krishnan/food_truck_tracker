@@ -1,22 +1,21 @@
 class Api::V1::AppointmentsController < ApplicationController
 
   def index
-    @appointments = []
-    Appointment.find_each do |appointment|
-      @appointments << {
-        "truck": appointment.truck.name,
-        "location": appointment.location.address,
-        "day": appointment.timeslot.day,
-        "time": appointment.timeslot.time,
-      }
-    end
+    appointments = Appointment.all
 
-    render json: { appointments: @appointments }
+    render(
+      json: appointments,
+      status: :ok,
+      each_serializer: AppointmentSerializer
+    )
   end
 
   def show
-    @appointment = Appointment.find(params[:id])
+    appointment = Appointment.find(params[:id])
 
-    render json: { appointment: @appointment }
+    render(
+      json: appointment,
+      status: :ok
+    )
   end
 end

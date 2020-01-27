@@ -1,11 +1,11 @@
 source 'https://rubygems.org/'
 
+gem 'active_model_serializers'
 gem 'devise'
 gem 'foundation-rails'
 gem 'geocoder'
 gem 'httparty'
 gem 'jquery-rails'
-gem 'nokogiri'
 gem 'pg', '~> 0.20'
 gem 'puma', '~> 3.0'
 gem 'rails', '~> 5.2.2'
@@ -25,14 +25,13 @@ group :development, :test do
   gem 'factory_bot_rails'
   gem 'launchy'
   gem 'pry-rails'
+  gem 'shoulda-matchers'
   gem 'rspec-rails', '~> 3.5'
-  gem 'shoulda'
-  gem 'shoulda-matchers', require: false
   gem 'valid_attribute'
 end
 
 group :test do
-  gem 'coveralls', require: false
+  gem 'coveralls'
 end
 
 group :production do
