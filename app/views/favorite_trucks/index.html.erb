@@ -57,9 +57,9 @@
           <div>No food today!</div> </br>
         <% else %>
           <% appointments.each do |appointment| %>
-            <%= appointment.timeslot.day %>
-            <%= appointment.timeslot.time %>: </br>
-            <%= appointment.location.address %> </br></br>
+            <%= appointment.day %>
+            <%= appointment.time %>: </br>
+            <%= appointment.short_address %> </br></br>
           <% end %>
         <% end %>
       <% end %>
