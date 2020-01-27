@@ -24,12 +24,12 @@
             <li><%= link_to "All Trucks", trucks_path %></li>
             <li><%= link_to "Find Trucks", appointments_path %></li>
           <% if user_signed_in? %>
-            <li><%= link_to "Your trucks", favorite_trucks_path %></li>
-            <li><%= link_to "Your account", edit_user_registration_path %></li>
-            <li><%= link_to "Sign out", destroy_user_session_path, method: :delete %></li>
+            <li><%= link_to "Your Trucks", favorite_trucks_path %></li>
+            <li><%= link_to "Your Account", edit_user_registration_path %></li>
+            <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
           <% else %>
-            <li><%= link_to "Sign in", new_user_session_path %></li>
-            <li><%= link_to "Sign up", new_user_registration_path %></li>
+            <li><%= link_to "Sign In", new_user_session_path %></li>
+            <li><%= link_to "Sign Up", new_user_registration_path %></li>
           <% end %>
         </ul>
       </div>
